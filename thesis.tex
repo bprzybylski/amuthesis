@@ -2,14 +2,72 @@
 % Opcje:
 % --- polski (domyślnie)
 % --- english
-% --- indent
+% --- lineno (włącz numerowanie wierszy)
+% --- indent (wcinaj pierwszy akapit paragrafu)
+
+% --- Autor pracy
+\author{Bartłomiej Przybylski}
+% --- Numer albumu
+\album{123456}
+% --- Tytuł pracy
+\titlePL{Przykład zastosowania klasy \texttt{amuthesis}}
+\titleEN{An example use of \texttt{amuthesis} class}
+% --- Typ pracy (inżynierska, licencjacka, magisterska)
+\type{magisterska}
+% --- Kierunek (w mianowniku)
+\field{matematyka}
+% --- Promotor (w dopełniaczu)
+\supervisor{prof. UAM dr. hab. Adama Nowaka}
+% --- Data złożenia pracy (Miasto, miesiąc rok)
+\date{Poznań, wrzesień 2017}
+
+% --- Płeć autora
+\stmale
+% \stfemale
+
+% --- Zgoda na udostępnienie pracy w czytelni (TAK/NIE)
+\stread{TAK}
+% --- Zgoda na udostępnienie pracy w zakresie ochrony (TAK/NIE)
+\stprotect{TAK}
+
+% --- Data podpisania oświadczenia (Miasto, data)
+\stdate{Poznań, \today{} r.}
+
 
 \usepackage{lipsum}
 
 \begin{document}
 
+% Strona tytułowa
+\maketitle
+
+% Oświadczenie
+\makestatement
+
+% Opcjonalny blok abstraktu w języku polskim
+\begin{streszczenie}
+\lipsum[1]
+\end{streszczenie}
+
+% Opcjonalny blok abstraktu w języku angielskim
+\begin{abstract}
+\lipsum[1]
+\end{abstract}
+
+% Opcjonalny blok podziękowań
+\begin{podziekowania}
+\lipsum[5]
+\end{podziekowania}
+
+% Opcjonalny blok dedykacji
+\begin{dedykacja}
+\emph{Moja dedykacja}
+\end{dedykacja}
+
+% Spis treści
 \tableofcontents
 
+% Początek zasadniczej części dokumentu
 \chapter{Test}
 
 \lipsum[1]
@@ -21,7 +79,5 @@
 \subsection{DEF}
 
 \lipsum[4]
-
-\chapter{Another test}
 
 \end{document}
