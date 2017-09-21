@@ -65,6 +65,7 @@
 
 % Składaj dokument fontem 'Adobe Utopia'
 \RequirePackage{fourier}
+\RequirePackage[scale=.9,semibold]{sourcecodepro}
 
 % Zmodyfikuj rozmiar dokumentu
 \RequirePackage{geometry}
