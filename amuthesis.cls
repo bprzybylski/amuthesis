@@ -5,15 +5,17 @@
 % Obsługa opcji pakietu                                    %
 % ======================================================== %
 
-% Praca w języku polskim
+% Język dokumentu
 \newif\if@optpolski
 \DeclareOption{polski}{\@optpolskitrue}
 \ExecuteOptions{polski}
 \DeclareOption{english}{\@optpolskifalse}
 
+% Wcięcia pierwszych akapitów w paragrafie
 \newif\if@optindent
 \DeclareOption{indent}{\@optindenttrue}
 
+% Numerowanie wierszy
 \newif\if@optlineno
 \DeclareOption{lineno}{\@optlinenotrue}
 
@@ -22,10 +24,11 @@
   \ClassWarning{amuthesis}{Nieznany parametr klasy: \CurrentOption}
 }
 
+% Przetwórz opcje
 \ProcessOptions\relax
 
 % Oprzyj dokument na jednym z zestawów, w zależności
-% od statusu opcji polski/english
+% od statusu opcji 'optpolski'
 \if@optpolski
   \LoadClass[oneside,12pt]{mwbk}
   \RequirePackage{polski}
@@ -33,7 +36,8 @@
   \LoadClass[oneside,12pt]{book}
 \fi
 
-% Uruchom numerację wierszy, jeśli to konieczne
+% Uruchom numerację wierszy, jeśli do klasy przekazano
+% opcję 'lineno'
 \if@optlineno
   \RequirePackage[mathlines]{lineno}
   \newcommand*\patchAmsMathEnvironmentForLineno[1]{%
@@ -57,7 +61,7 @@
 \fi
 
 % ======================================================== %
-% Podstawowe pakiety                                       %
+% Podstawowe pakiety i ustawienia dokumentu                %
 % ======================================================== %
 
 % Upewnij się, że dokument jest składany UTF-8
@@ -65,9 +69,10 @@
 
 % Składaj dokument fontem 'Adobe Utopia'
 \RequirePackage{fourier}
+% Dołącz font 'Souce Code Pro'
 \RequirePackage[scale=.9,semibold]{sourcecodepro}
 
-% Zmodyfikuj rozmiar dokumentu
+% Ustal rozmiar dokumentu
 \RequirePackage{geometry}
 \geometry{a4paper,%
           innermargin=3.75cm,%
@@ -77,7 +82,7 @@
           headsep=24pt,%
           footskip=42pt}
 
-% Zapewnij wsparcie dla PDF
+% Zapewnij poprawną interakcję wewnątrz pliku PDF
 \RequirePackage[hidelinks,unicode]{hyperref}
 
 % Dołącz podstawowe pakiety
@@ -92,13 +97,15 @@
 % Konfiguracja i polecenia specjalne                       %
 % ======================================================== %
 
-\linespread{1.15}\selectfont
+% Ustawienia składu pionowego
+\linespread{1.15}
 \raggedbottom
 
+% Zdefiniuj otoczenia dla abstraktów
 \newenvironment{abstract}{\chapter*{Abstract}}{}
 \newenvironment{streszczenie}{\chapter*{Streszczenie}}{}
-\newenvironment{podziekowania}{\chapter*{Podziękowania}}{}
 
+% Zdefiniuj otoczenie dla dedykacji
 \newenvironment{dedykacja}{%
   \clearpage\thispagestyle{empty}\mbox{}\vfill
   \hfill\begin{minipage}{0.4\textwidth}
@@ -107,7 +114,11 @@
   \vspace*{5cm}
 }
 
-% Strona tytułowa
+% ======================================================== %
+% Strona tytułowa                                          %
+% ======================================================== %
+
+% Zdefiniuj parametry strony tytułowej
 \newcommand*{\titlePL}[1]{\gdef\@titlePL{#1}}
 \newcommand*{\@titlePL}{}
 \newcommand*{\titleEN}[1]{\gdef\@titleEN{#1}}
@@ -127,6 +138,7 @@
   \title{\@titleEN}
 \fi
 
+% Zdefiniuj polecenie '\maketitle'
 \renewcommand*{\maketitle}{%
   \clearpage\thispagestyle{empty}%
   {\noindent\centering\scshape\large%
@@ -141,6 +153,7 @@
     Numer albumu: %
     \@album\strut\par}%
   \vspace{2.5cm}
+  % Uzależnij kolejność tytułów od wybranego języka
   \if@optpolski
     {\noindent\centering\Large\@titlePL\strut\par}%
     {\noindent\centering\normalfont\@titleEN\strut\par}%
@@ -151,25 +164,30 @@
   \vfill
   {\noindent\normalfont\centering{%
     Praca \@type{} na kierunku \@field{}\\
-    napisana pod kierunkiem\\
+    napisana pod opieką\\
     \bfseries{\@supervisor}%
   }\strut\par}%
   \vspace{2.5cm}%
   {\noindent\centering\normalfont\@date\strut\par}
 }
 
+% ======================================================== %
+% Oświadczenie                                             %
+% ======================================================== %
+
+% Zdefiniuj parametry oświadczenia
 \newif\if@stmale
 \newcommand*{\stmale}{\@stmaletrue}
 \newcommand*{\stfemale}{\@stmalefalse}
 
+\newcommand*{\stdate}[1]{\gdef\@stdate{#1}}
+\newcommand*{\@stdate}{}
 \newcommand*{\stread}[1]{\gdef\@stread{#1}}
 \newcommand*{\@stread}{}
 \newcommand*{\stprotect}[1]{\gdef\@stprotect{#1}}
 \newcommand*{\@stprotect}{}
 
-\newcommand*{\stdate}[1]{\gdef\@stdate{#1}}
-\newcommand*{\@stdate}{}
-
+% Zdefiniuj polecenie '\makestatement'
 \newcommand*{\makestatement}{%
   \clearpage\thispagestyle{empty}%
   {\noindent\normalfont\flushright{\@stdate{}}\strut\par}%
@@ -205,13 +223,15 @@
   \if@stmale zlecałem \else zlecałam \fi %
   opracowania rozprawy lub jej części innym osobom, ani nie %
   \if@stmale odpisywałem \else odpisywałam \fi %
-  tej rozprawy lub jej części od innych osób. Oświadczam również, że egzemplarz pracy dyplomowej w~wersji drukowanej jest całkowicie zgodny z~egzemplarzem pracy dyplomowej w~wersji elektronicznej. Jednocześnie przyjmuję do wiadomości, że przypisanie sobie, w~pracy dyplomowej, autorstwa istotnego fragmentu lub innych elementów cudzego utworu lub ustalenia naukowego stanowi podstawę stwierdzenia nieważności postępowania w~sprawie nadania tytułu zawodowego.\par
-  }
+  tej rozprawy lub jej części od innych osób. Oświadczam również, że egzemplarz pracy dyplomowej w~wersji drukowanej jest całkowicie zgodny z~egzemplarzem pracy dyplomowej w~wersji elektronicznej. Jednocześnie przyjmuję do wiadomości, że przypisanie sobie, w~pracy dyplomowej, autorstwa istotnego fragmentu lub innych elementów cudzego utworu lub ustalenia naukowego stanowi podstawę stwierdzenia nieważności postępowania w~sprawie nadania tytułu zawodowego.\par%
+  }%
   {
   \vspace{2cm}%
   \small%
-  \noindent[\uppercase{\@stread}] -- wyrażam zgodę na udostępnianie mojej pracy w czytelni Archiwum UAM\par
-  \noindent[\uppercase{\@stprotect}] -- wyrażam zgodę na udostępnianie mojej pracy w zakresie koniecznym do ochrony mojego prawa do autorstwa lub praw osób trzecich\par
+  \noindent[\uppercase{\@stread}]{\hskip 4pt}--{\hskip 4pt}%
+  wyrażam zgodę na udostępnianie mojej pracy w czytelni Archiwum UAM\par
+  \noindent[\uppercase{\@stprotect}]{\hskip 4pt}--{\hskip 4pt}%
+  wyrażam zgodę na udostępnianie mojej pracy w zakresie koniecznym do ochrony mojego prawa do autorstwa lub praw osób trzecich\par
   }
   \clearpage
 }
