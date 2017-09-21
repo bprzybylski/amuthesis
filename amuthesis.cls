@@ -160,7 +160,7 @@
 
 \newif\if@stmale
 \newcommand*{\stmale}{\@stmaletrue}
-\newcommand*{\stfemale}{\@stfemaletrue}
+\newcommand*{\stfemale}{\@stmalefalse}
 
 \newcommand*{\stread}[1]{\gdef\@stread{#1}}
 \newcommand*{\@stread}{}
