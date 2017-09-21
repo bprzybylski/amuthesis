@@ -108,10 +108,12 @@
 % Zdefiniuj otoczenie dla dedykacji
 \newenvironment{dedykacja}{%
   \clearpage\thispagestyle{empty}\mbox{}\vfill
-  \hfill\begin{minipage}{0.4\textwidth}
+  \hfill\begin{minipage}{0.5\textwidth}
+  \begin{flushleft}
 }{
+  \end{flushleft}
   \end{minipage}
-  \vspace*{5cm}
+  \vspace*{4cm}
 }
 
 % ======================================================== %
