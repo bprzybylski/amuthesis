@@ -95,6 +95,8 @@
   \fi
 \fi
 
+\setlength{\textfloatsep}{2\baselineskip}
+
 % Obsługa fontów
 \if@xetexorluatex
   %\RequirePackage{unicode-math}
@@ -524,6 +526,7 @@
     \@afterheading
     \makeatother
   \fi
+  \nopagebreak[4]
 }
 
 % Podparagrafy
@@ -564,6 +567,7 @@
     \@afterheading
     \makeatother
   \fi
+  \nopagebreak[4]
 }
 
 % ======================================================== %
