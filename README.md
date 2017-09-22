@@ -10,10 +10,10 @@ Główny plik klasy `amuthesis`, nazwany `amuthesis.cls`, zawiera definicje pole
 
 Poza tym, repozytorium zawiera dodatkowe pliki:
 
-* `thesis.tex` oraz `thesis.pdf` – pliki te zawierają opis możliwości klasy,
-* `thesis-empty.tex` oraz `thesis-empty.pdf` – pliki te stanowią szkielet, na którym można oprzeć swoją pracę dyplomową.
+* `amuthesis-doc.tex` oraz `amuthesis-doc.pdf` – pliki te zawierają opis możliwości klasy,
+* `thesis.tex` oraz `thesis.pdf` – pliki te stanowią szkielet, na którym można oprzeć swoją pracę dyplomową.
 
 ## Jak używać klasy `amuthesis`?
 * [Pobierz](https://github.com/bprzybylski/amuthesis/archive/master.zip) i wypakuj archiwum `zip` z aktualną zawartością repozytorium.
-* Zapoznaj się z zawartością pliku `thesis.pdf`.
-* Uzupełnij plik `thesis.empty.tex` treścią i skopiluj go z wykorzystaniem jednego z trzech wymienionych wyżej kompilatorów.
+* Zapoznaj się z zawartością pliku `amuthesis-doc.pdf`.
+* Uzupełnij plik `thesis.tex` treścią i skopiluj go z wykorzystaniem jednego z trzech wymienionych wyżej kompilatorów.

@@ -1,22 +1,21 @@
-%!TEX program=xelatex
-\documentclass[oneside]{amuthesis}
+\documentclass[oneside,polski]{amuthesis}
 
 % Zdefiniuj kodowanie dokumentu
 \usepackage[utf8]{inputenc}
 
 % --- Autor pracy
-\author{Bartłomiej Przybylski}
+\author{Jan Kowalski}
 % --- Numer albumu
 \album{123456}
 % --- Tytuł pracy
-\titlePL{Krótki podręcznik użytkownika klasy \texttt{amuthesis}}
-\titleEN{A short user manual for \texttt{amuthesis} class}
+\titlePL{Moja praca}
+\titleEN{My thesis}
 % --- Typ pracy (inżynierska, licencjacka, magisterska)
 \type{magisterska}
 % --- Kierunek (w mianowniku)
 \field{matematyka}
 % --- Promotor (w dopełniaczu)
-\supervisor{prof. UAM dr. hab. Jana Nowaka}
+\supervisor{prof. UAM dr. hab. Adama Nowaka}
 % --- Data złożenia pracy (Miasto, miesiąc rok)
 \date{Poznań, wrzesień 2017}
 
@@ -36,6 +35,7 @@
 % Umieść dodatkowe pakiety tutaj
 \usepackage{lipsum}
 
+% Początek dokumentu
 \begin{document}
 % Strona tytułowa
 \maketitle
@@ -44,118 +44,25 @@
 
 % Blok abstraktu w języku polskim
 \begin{streszczenie}
-Klasa \texttt{amuthesis} została stworzona z myślą o studentach ostatnich lat studiów licencjackich, inżynierskich i magisterskich na Wydziale Matematyki i~Informatyki Uniwersytetu im. Adama Mickiewicza w Poznaniu, choć równie dobrze może być wykorzystywana na innych uczelniach. Dobrym zwyczajem jest bowiem składać prace dyplomowe z wykorzystaniem systemu \LaTeX{} i~bynajmniej nie dotyczy to wyłącznie prac z matematyki i informatyki. Niestety, samodzielnie przygotowanie wszystkich elementów składowych pracy dyplomowej wymaga nie tylko zaawansowanej znajomości systemu \LaTeX{} oraz zasad rządzących składem tekstu, ale przede wszystkim czasu. Klasa \texttt{amuthesis} dostarcza więc wszystko to, co jest potrzebne do stworzenia pięknej pracy dyplomowej w~języku polskim lub w~języku angielskim.
+\lipsum[1]
 \end{streszczenie}
 
 % Blok abstraktu w języku angielskim
 \begin{abstract}
-\lipsum[1]
+\lipsum[2]
 \end{abstract}
 
 % Opcjonalny blok dedykacji
 \begin{dedykacja}
-Klasę \texttt{amuthesis} dedykuję wszystkim tym, dla których wygląd ma równie istotne znaczenie co wnętrze.
+Moja dedykacja.
 \end{dedykacja}
 
 % Spis treści
 \tableofcontents
 
 % Początek zasadniczej części dokumentu
-\chapter{Klasa \texttt{amuthesis}}
+\chapter{Moja praca}
 
-Główny plik klasy \texttt{amuthesis}, nazwany \texttt{amuthesis.cls}, zawiera definicje poleceń i otoczeń przydatnych w czasie tworzenia pracy dyplomowej. Opiera się przy tym na standardowych klasach: \texttt{book} dla prac w języku angielskim oraz \texttt{mwbk} dla prac w języku polskim. Klasa \texttt{amuthesis} współpracuje z najpopularniejszymi silnikami \LaTeX{}a:
-\begin{itemize}
-  \item \texttt{pdflatex},
-  \item \texttt{xelatex},
-  \item \texttt{lualatex}.
-\end{itemize}
-
-\section{Opcje}
-
-Klasa \texttt{amuthesis} wspiera parametry opcjonalne, których przekazanie powoduje dostosowanie finalnego dokumentu do bieżacych potrzeb. Tabela~\ref{table:amuthesis-opcje} zawiera ich uproszczony opis.
-
-\begin{table}[p]
-  \caption{Opcje klasy \texttt{amuthesis}}
-  \label{table:amuthesis-opcje}
-  \centering
-  \begin{tabular}{ccp{9cm}}
-    \toprule
-    Opcja & Domyślnie & Opis\\
-    \midrule
-    \texttt{polski} & Tak & Do pracy zostanie dołączony pakiet \texttt{polski}, a sam dokument zostanie oparty na klasie \texttt{mwbk}. W szczególności oznacza to, że wszystkie stosowane nazwy będą polskojęzyczne (np. ,,Rozdział''), a skład tekstu odbędzie się zgodnie z~polskimi normami.\\
-    \midrule
-    \texttt{english} & & Praca zostanie oparta na klasie \texttt{book}. Wszystkie stosowane nazwy będą anglojęzyczne (np. ,,Chapter''), a skład tekstu odbędzie się zgodnie z~anglosaskimi normami.\\
-    \midrule
-    \texttt{indent} & & Pierwszy akapit w ramach paragrafu zostanie wcięty. Jeśli do klasy nie zostanie przekazana opcja \texttt{indent}, to pierwsze akapity nie będą wcinane, niezależnie od języka, w którym składany jest dokument.\\
-    \midrule
-    \texttt{lineno} & & Wynikowy dokument zostanie wzbogacony o numerację wierszy.\\
-    \midrule
-    \texttt{oneside} & Tak & Wygenerowany dokument będzie przygotowany do druku jednostronnego lub publikacji elektronicznej.\\
-    \midrule
-    \texttt{twoside} & & Wygenerowany dokument będzie przygotowany do druku dwustronnego. Poszczególne części składowe pracy (np. rozdziały) będą się rozpoczynać zawsze od nieparzystej strony.\\
-    \midrule
-    \texttt{leftblank} & & Jeśli do klasy przekazano dodatkowo opcję \texttt{twoside}, to na pustej stronie przed kolejną częścią składową pracy (o ile taka występuje) zostanie umieszczony tekst ,,Ta strona jest pusta.'' (,,This page intentionally left blank.''). Tekst ten można zmienić korzystając z~polecenia \verb`\leftblank`.\\
-    \midrule
-    \texttt{swapthm} & & W stosowanych otoczeniach numerowanych, ich nazwa i numer zostaną zamienione miejscami (numer zostanie umieszczony przed nazwą).\\
-    \bottomrule
-  \end{tabular}
-\end{table}
-
-\section{Otoczenia}
-
-Klasa \texttt{amuthesis} dostarcza szereg standardowych otoczeń, które mogą być wykorzystywane w tworzonym dokumencie. Każde z takich otoczeń występuje pod jednym z dwóch oznaczeń, ale stosowana w dokumencie nazwa zależy wyłącznie od języka dokumentu. Tabela~\ref{table:amuthesis-otoczenia} zawiera ich pełną listę. Elementy oddzielone w niej poziomą linią współdzielą numerację w ramach rozdziałów.
-
-\begin{table}[p]
-  \caption{Otoczenia zdefiniowane w klasie \texttt{amuthesis}}
-  \label{table:amuthesis-otoczenia}
-  \centering
-  \begin{tabular}{lll}
-    \toprule
-    Oznaczenia & Nazwa (pl) & Nazwa (en)\\
-    \midrule
-    \texttt{twierdzenie} / \texttt{theorem} & Twierdzenie & Theorem\\
-    \texttt{dowod} / \texttt{proof} & Dowód & Proof\\
-    \texttt{lemat} / \texttt{lemma} & Lemat & Lemma\\
-    \texttt{hipoteza} / \texttt{statement} & Hipoteza & Statement\\
-    \texttt{stwierdzenie} / \texttt{proposition} & Stwierdzenie & Proposition\\
-    \texttt{wniosek} / \texttt{corollary} & Wniosek & Corollary\\
-    \texttt{spostrzeżenie} / \texttt{remark} & Spostrzeżenie & Remark\\
-    \texttt{obserwacja} / \texttt{note} & Obserwacja & Note\\
-    \midrule
-    \texttt{definicja} / \texttt{definition} & Definicja & Definition\\
-    \midrule
-    \texttt{przyklad} / \texttt{example} & Przykład & Example\\
-    \midrule
-    \texttt{zadanie} / \texttt{task} & Zadanie & Task\\
-    \texttt{cwiczenie} / \texttt{exercise} & Ćwiczenie & Exercise\\
-    \bottomrule
-  \end{tabular}
-\end{table}
-
-\begin{theorem}Lorem ipsum.\end{theorem}
-\begin{proof}Lorem ipsum.\end{proof}
-\begin{lemma}Lorem ipsum.\end{lemma}
-\begin{statement}Lorem ipsum.\end{statement}
-\begin{proposition}Lorem ipsum.\end{proposition}
-\begin{corollary}Lorem ipsum.\end{corollary}
-\begin{remark}Lorem ipsum.\end{remark}
-\begin{note}Lorem ipsum.\end{note}
-\begin{definition}Lorem ipsum.\end{definition}
-\begin{example}Lorem ipsum.\end{example}
-\begin{task}Lorem ipsum.\end{task}
-\begin{exercise}Lorem ipsum.\end{exercise}
-
-\section{Dodatkowe pakiety}
-
-Jeśli dokument jest oparty na klasie \texttt{amuthesis}, to można w nim korzystać z~następujących pakietów bez dodatkowych działań:
-\texttt{fontspec},  \texttt{geometry},  \texttt{hyperref},  \texttt{xcolor},
-\texttt{amsmath},   \texttt{amssymb},   \texttt{amsthm},    \texttt{graphicx},
-\texttt{microtype}, \texttt{booktabs},  \texttt{array},     \texttt{fancyhdr},
-\texttt{tabularx},  \texttt{longtable}, \texttt{makecell},  \texttt{verbatim} oraz
-\texttt{listings}.
-
-\chapter{Podstawowa struktura dokumentu}
-
-Plik \texttt{thesis-empty.tex} zawiera opis pustego dokumentu tworzonego w oparciu o klasę \texttt{amuthesis}. Możesz go uzupełnić treścią według własnego uznania.
+\lipsum[3]
 
 \end{document}
