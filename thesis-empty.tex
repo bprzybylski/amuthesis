@@ -1,0 +1,68 @@
+\documentclass[oneside,polski]{amuthesis}
+
+% Zdefiniuj kodowanie dokumentu
+\usepackage[utf8]{inputenc}
+
+% --- Autor pracy
+\author{Jan Kowalski}
+% --- Numer albumu
+\album{123456}
+% --- Tytuł pracy
+\titlePL{Moja praca}
+\titleEN{My thesis}
+% --- Typ pracy (inżynierska, licencjacka, magisterska)
+\type{magisterska}
+% --- Kierunek (w mianowniku)
+\field{matematyka}
+% --- Promotor (w dopełniaczu)
+\supervisor{prof. UAM dr. hab. Adama Nowaka}
+% --- Data złożenia pracy (Miasto, miesiąc rok)
+\date{Poznań, wrzesień 2017}
+
+% --- Płeć autora (M/K)
+\stsex{M}
+% --- Zgoda na udostępnienie pracy w czytelni (TAK/NIE)
+\stread{TAK}
+% --- Zgoda na udostępnienie pracy w zakresie ochrony (TAK/NIE)
+\stprotect{TAK}
+
+% --- Data podpisania oświadczenia (Miasto, data)
+\stdate{Poznań, \today{} r.}
+
+% Pozostałe opcje (odkomentuj pożądane)
+%\leftblank{Ta strona jest pusta.}
+
+% Umieść dodatkowe pakiety tutaj
+\usepackage{lipsum}
+
+% Początek dokumentu
+\begin{document}
+% Strona tytułowa
+\maketitle
+% Oświadczenie
+\makestatement
+
+% Blok abstraktu w języku polskim
+\begin{streszczenie}
+\lipsum[1]
+\end{streszczenie}
+
+% Blok abstraktu w języku angielskim
+\begin{abstract}
+\lipsum[2]
+\end{abstract}
+
+% Opcjonalny blok dedykacji
+\begin{dedykacja}
+Moja dedykacja.
+\end{dedykacja}
+
+% Spis treści
+\tableofcontents
+
+% Początek zasadniczej części dokumentu
+\chapter{Moja praca}
+
+\lipsum[3]
+
+\end{document}

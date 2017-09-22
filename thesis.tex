@@ -1,5 +1,5 @@
-%!TEX program=pdflatex
-\documentclass[oneside,polski]{amuthesis}
+%!TEX program=xelatex
+\documentclass[oneside]{amuthesis}
 
 % Zdefiniuj kodowanie dokumentu
 \usepackage[utf8]{inputenc}
@@ -37,10 +37,8 @@
 \usepackage{lipsum}
 
 \begin{document}
-
 % Strona tytułowa
 \maketitle
-
 % Oświadczenie
 \makestatement
 
@@ -65,7 +63,12 @@ Klasę \texttt{amuthesis} dedykuję wszystkim tym, dla których wygląd ma równ
 % Początek zasadniczej części dokumentu
 \chapter{Klasa \texttt{amuthesis}}
 
-Główny plik klasy \texttt{amuthesis}, nazwany \texttt{amuthesis.cls}, zawiera definicje poleceń i otoczeń przydatnych w czasie tworzenia pracy dyplomowej. Opiera się przy tym na standardowych klasach: \texttt{book} dla prac w języku angielskim oraz \texttt{mwbk} dla prac w języku polskim.
+Główny plik klasy \texttt{amuthesis}, nazwany \texttt{amuthesis.cls}, zawiera definicje poleceń i otoczeń przydatnych w czasie tworzenia pracy dyplomowej. Opiera się przy tym na standardowych klasach: \texttt{book} dla prac w języku angielskim oraz \texttt{mwbk} dla prac w języku polskim. Klasa \texttt{amuthesis} współpracuje z najpopularniejszymi silnikami \LaTeX{}a:
+\begin{itemize}
+  \item \texttt{pdflatex},
+  \item \texttt{xelatex},
+  \item \texttt{lualatex}.
+\end{itemize}
 
 \section{Opcje}
 
@@ -74,7 +77,7 @@ Klasa \texttt{amuthesis} wspiera parametry opcjonalne, których przekazanie powo
 \begin{table}[p]
   \caption{Opcje klasy \texttt{amuthesis}}
   \label{table:amuthesis-opcje}
-  \begin{center}
+  \centering
   \begin{tabular}{ccp{9cm}}
     \toprule
     Opcja & Domyślnie & Opis\\
@@ -91,12 +94,11 @@ Klasa \texttt{amuthesis} wspiera parametry opcjonalne, których przekazanie powo
     \midrule
     \texttt{twoside} & & Wygenerowany dokument będzie przygotowany do druku dwustronnego. Poszczególne części składowe pracy (np. rozdziały) będą się rozpoczynać zawsze od nieparzystej strony.\\
     \midrule
-    \texttt{leftblank} & & Jeśli do klasy przekazano dodatkowo opcję \texttt{twoside}, to na pustej stronie przed kolejną częścią składową pracy (o ile taka występuje) zostanie umieszczony tekst ,,Ta strona jest pusta.''. Tekst ten można zmienić korzystając z~polecenia \verb`\leftblank`.\\
+    \texttt{leftblank} & & Jeśli do klasy przekazano dodatkowo opcję \texttt{twoside}, to na pustej stronie przed kolejną częścią składową pracy (o ile taka występuje) zostanie umieszczony tekst ,,Ta strona jest pusta.'' (,,This page intentionally left blank.''). Tekst ten można zmienić korzystając z~polecenia \verb`\leftblank`.\\
     \midrule
     \texttt{swapthm} & & W stosowanych otoczeniach numerowanych, ich nazwa i numer zostaną zamienione miejscami (numer zostanie umieszczony przed nazwą).\\
     \bottomrule
   \end{tabular}
-  \end{center}
 \end{table}
 
 \section{Otoczenia}
@@ -106,7 +108,7 @@ Klasa \texttt{amuthesis} dostarcza szereg standardowych otoczeń, które mogą b
 \begin{table}[p]
   \caption{Otoczenia zdefiniowane w klasie \texttt{amuthesis}}
   \label{table:amuthesis-otoczenia}
-  \begin{center}
+  \centering
   \begin{tabular}{lll}
     \toprule
     Oznaczenia & Nazwa (pl) & Nazwa (en)\\
@@ -128,7 +130,6 @@ Klasa \texttt{amuthesis} dostarcza szereg standardowych otoczeń, które mogą b
     \texttt{cwiczenie} / \texttt{exercise} & Ćwiczenie & Exercise\\
     \bottomrule
   \end{tabular}
-  \end{center}
 \end{table}
 
 \begin{theorem}Lorem ipsum.\end{theorem}
@@ -149,11 +150,12 @@ Klasa \texttt{amuthesis} dostarcza szereg standardowych otoczeń, które mogą b
 Jeśli dokument jest oparty na klasie \texttt{amuthesis}, to można w nim korzystać z~następujących pakietów bez dodatkowych działań:
 \texttt{fontspec},  \texttt{geometry},  \texttt{hyperref},  \texttt{xcolor},
 \texttt{amsmath},   \texttt{amssymb},   \texttt{amsthm},    \texttt{graphicx},
-\texttt{microtype}, \texttt{booktabs},  \texttt{fancyhdr},  \texttt{array},
-\texttt{tabularx},  \texttt{longtable}, \texttt{makecell}.
+\texttt{microtype}, \texttt{booktabs},  \texttt{array},     \texttt{fancyhdr},
+\texttt{tabularx},  \texttt{longtable}, \texttt{makecell},  \texttt{verbatim} oraz
+\texttt{listings}.
 
-\chapter{Kilka zasad związanych z pisaniem tekstów matematycznych}
+\chapter{Podstawowa struktura dokumentu}
 
-\lipsum[1-4]
+Plik \texttt{thesis-empty.tex} zawiera opis pustego dokumentu tworzonego w oparciu o klasę \texttt{amuthesis}. Możesz go uzupełnić treścią według własnego uznania.
 
 \end{document}

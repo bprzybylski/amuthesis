@@ -130,7 +130,12 @@
 % Obsłuż opis pustych stron
 \newcommand*{\leftblank}[1]{\gdef\@leftblank{#1}}
 \newcommand*{\@leftblank}{}
-\leftblank{Ta strona jest pusta.}
+
+\if@optpolski
+  \leftblank{Ta strona jest pusta.}
+\else
+  \leftblank{This page intentionally left blank.}
+\fi
 
 \if@optleftblank
   \def\cleardoublepage{%
@@ -163,6 +168,50 @@
 \RequirePackage{longtable}
 \RequirePackage{makecell}
 \RequirePackage{booktabs}
+\RequirePackage{verbatim}
+
+% ======================================================== %
+% Etykiety                                                 %
+% ======================================================== %
+
+\RequirePackage[justification=raggedright,
+                singlelinecheck=false,
+                labelsep=period]{caption}
+\DeclareCaptionFormat{stdcap}{\textbf{#1#2}#3\vspace*{0.5em}}
+\captionsetup[table]{justification=centering}
+\captionsetup{format=stdcap}
+
+% ======================================================== %
+% Listingi                                                 %
+% ======================================================== %
+
+\RequirePackage{listings}
+\AtBeginDocument{%
+  \renewcommand*{\thelstlisting}{\thechapter-\arabic{lstlisting}}%
+}
+
+\if@optpolski
+  \renewcommand{\lstlistingname}{Wyciąg}
+\else
+  \renewcommand{\lstlistingname}{Listing}
+\fi
+
+\lstset{
+  basicstyle=\small\ttfamily,
+  breaklines=true,
+  xleftmargin=26pt,
+  showstringspaces=false,
+  belowskip=9pt,
+  aboveskip=9pt,
+  extendedchars=true,
+  inputencoding=utf8,
+  frame=l,
+  framesep=5pt,
+  numbers=left,
+  numberstyle=\footnotesize\ttfamily\color{gray},
+  rulecolor=\color{gray!50},
+  extendedchars=true
+}
 
 % ======================================================== %
 % Otoczenia                                                %
@@ -367,7 +416,7 @@
   \if@stmale podpisany \else podpisana \fi %
   {\bfseries\@author}, %
   \if@stmale student \else studentka \fi %
-  Wydzia\l{}u Matematyki i~Informatyki Uniwersytetu im.~Adama Mickiewicza w Poznaniu o\'swiadczam, \.ze przedk\l{}adan\k{a} prac\k{e} dyplomow\k{a} pt: %
+  Wydzia\l{}u Matematyki i~Informatyki Uniwersytetu im.~Adama Mickiewicza w Poznaniu o\'swiadczam, \.ze przedk\l{}adan\k{a} prac\k{e} dyplomow\k{a} pt. %
   \emph{\@title} %
   \if@stmale napisa\l{}em \else napisa\l{}am \fi %
   samodzielnie. Oznacza to, \.ze przy pisaniu pracy, poza niezb\k{e}dnymi konsultacjami, nie %
