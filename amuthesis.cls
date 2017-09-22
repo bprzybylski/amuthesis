@@ -19,6 +19,10 @@
 \newif\if@optlineno
 \DeclareOption{lineno}{\@optlinenotrue}
 
+% Wsparcie dla stron pustych
+\newif\if@optleftblank
+\DeclareOption{leftblank}{\@optleftblanktrue}
+
 % Skład jedno- i dwustronny
 \DeclareOption{oneside}{
   \PassOptionsToClass{oneside}{mwbk}
@@ -120,6 +124,30 @@
 
 % Zapewnij poprawną interakcję wewnątrz pliku PDF
 \RequirePackage[hidelinks,unicode]{hyperref}
+
+% Obsłuż opis pustych stron
+\newcommand*{\leftblank}[1]{\gdef\@leftblank{#1}}
+\newcommand*{\@leftblank}{}
+\leftblank{Ta strona jest pusta.}
+
+\if@optleftblank
+  \def\cleardoublepage{%
+    \clearpage\if@twoside%
+    \ifodd\c@page%
+    \else
+      \vspace*{\fill}
+      \hfill
+      \begin{center}
+      \@leftblank
+      \end{center}
+      \vspace{\fill}
+      \thispagestyle{empty}
+      \newpage
+      \if@twocolumn\hbox{}\newpage\fi
+    \fi
+  \fi
+  }
+\fi
 
 % Dołącz podstawowe pakiety
 \RequirePackage{xcolor}
