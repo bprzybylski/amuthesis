@@ -104,8 +104,6 @@
        {texgyrepagella-regular.otf}
   \newfontfamily\scshape[Letters=SmallCaps]{texgyrepagella-regular.otf}
 \else
-  % Upewnij się, że dokument jest składany UTF-8
-  \RequirePackage[utf8]{inputenc}
   \RequirePackage[sc]{mathpazo}
   \RequirePackage{avant}
 \fi
@@ -212,7 +210,7 @@
     Uniwersytet im. Adama Mickiewicza w Poznaniu%
   \strut\par}%
   {\noindent\centering\normalfont%
-    Wydział Matematyki i Informatyki%
+    Wydzia\l{} Matematyki i Informatyki%
   \strut\par}%
   \vspace{2.5cm}
   {\noindent\centering\normalfont\@author\strut\par}%
@@ -231,7 +229,7 @@
   \vfill
   {\noindent\normalfont\centering{%
     Praca \@type{} na kierunku \@field{}\\
-    napisana pod opieką\\
+    napisana pod opiek\k{a}\\
     \bfseries{\@supervisor}%
   }\strut\par}%
   \vspace{2.5cm}%
@@ -266,7 +264,7 @@
   \vbox to 6 \baselineskip{%
     \bgroup%
     \fontsize{18pt}{24pt}\selectfont\centering%
-    \vskip 1.5 \baselineskip Oświadczenie\par%
+    \vskip 1.5 \baselineskip O\'swiadczenie\par%
     \vfill%
     \egroup%
   }%
@@ -281,28 +279,28 @@
     \makeatother
   \fi%
   {%
-  Ja, niżej %
+  Ja, ni\.zej %
   \if@stmale podpisany \else podpisana \fi %
   {\bfseries\@author}, %
   \if@stmale student \else studentka \fi %
-  Wydziału Matematyki i~Informatyki Uniwersytetu im.~Adama Mickiewicza w Poznaniu oświadczam, że przedkładaną pracę dyplomową pt: %
+  Wydzia\l{}u Matematyki i~Informatyki Uniwersytetu im.~Adama Mickiewicza w Poznaniu o\'swiadczam, \.ze przedk\l{}adan\k{a} prac\k{e} dyplomow\k{a} pt: %
   \emph{\@title} %
-  \if@stmale napisałem \else napisałam \fi %
-  samodzielnie. Oznacza to, że przy pisaniu pracy, poza niezbędnymi konsultacjami, nie %
-  \if@stmale korzystałem \else korzystałam \fi %
-  z pomocy innych osób, a~w~szczególności nie %
-  \if@stmale zlecałem \else zlecałam \fi %
-  opracowania rozprawy lub jej części innym osobom, ani nie %
-  \if@stmale odpisywałem \else odpisywałam \fi %
-  tej rozprawy lub jej części od innych osób. Oświadczam również, że egzemplarz pracy dyplomowej w~wersji drukowanej jest całkowicie zgodny z~egzemplarzem pracy dyplomowej w~wersji elektronicznej. Jednocześnie przyjmuję do wiadomości, że przypisanie sobie, w~pracy dyplomowej, autorstwa istotnego fragmentu lub innych elementów cudzego utworu lub ustalenia naukowego stanowi podstawę stwierdzenia nieważności postępowania w~sprawie nadania tytułu zawodowego.\par%
+  \if@stmale napisa\l{}em \else napisa\l{}am \fi %
+  samodzielnie. Oznacza to, \.ze przy pisaniu pracy, poza niezb\k{e}dnymi konsultacjami, nie %
+  \if@stmale korzysta\l{}em \else korzysta\l{}am \fi %
+  z pomocy innych os\'ob, a~w~szczeg\'olno\'sci nie %
+  \if@stmale zleca\l{}em \else zleca\l{}am \fi %
+  opracowania rozprawy lub jej cz\k{e}\'sci innym osobom, ani nie %
+  \if@stmale odpisywa\l{}em \else odpisywa\l{}am \fi %
+  tej rozprawy lub jej cz\k{e}\'sci od innych os\'ob. O\'swiadczam r\'ownie\.z, \.ze egzemplarz pracy dyplomowej w~wersji drukowanej jest ca\l{}kowicie zgodny z~egzemplarzem pracy dyplomowej w~wersji elektronicznej. Jednocze\'snie przyjmuj\k{e} do wiadomo\'sci, \.ze przypisanie sobie, w~pracy dyplomowej, autorstwa istotnego fragmentu lub innych element\'ow cudzego utworu lub ustalenia naukowego stanowi podstaw\k{e} stwierdzenia niewa\.zno\'sci post\k{e}powania w~sprawie nadania tytu\l{}u zawodowego.\par%
   }%
   {
   \vspace{2cm}%
   \small%
   \noindent[\uppercase{\@stread}]{\hskip 4pt}--{\hskip 4pt}%
-  wyrażam zgodę na udostępnianie mojej pracy w czytelni Archiwum UAM\par
+  wyra\.zam zgod\k{e} na udost\k{e}pnianie mojej pracy w czytelni Archiwum UAM\par
   \noindent[\uppercase{\@stprotect}]{\hskip 4pt}--{\hskip 4pt}%
-  wyrażam zgodę na udostępnianie mojej pracy w zakresie koniecznym do ochrony mojego prawa do autorstwa lub praw osób trzecich\par
+  wyra\.zam zgod\k{e} na udost\k{e}pnianie mojej pracy w zakresie koniecznym do ochrony mojego prawa do autorstwa lub praw os\'ob trzecich\par
   }
   \clearpage
 }
