@@ -19,6 +19,16 @@
 \newif\if@optlineno
 \DeclareOption{lineno}{\@optlinenotrue}
 
+% Skład jedno- i dwustronny
+\DeclareOption{oneside}{
+  \PassOptionsToClass{oneside}{mwbk}
+  \PassOptionsToClass{oneside}{book}
+}
+\DeclareOption{twoside}{
+  \PassOptionsToClass{twoside}{mwbk}
+  \PassOptionsToClass{twoside}{book}
+}
+
 % Obsłuż nieznane opcje
 \DeclareOption*{
   \ClassWarning{amuthesis}{Nieznany parametr klasy: \CurrentOption}
@@ -118,6 +128,7 @@
 \RequirePackage{amsthm}
 \RequirePackage{graphicx}
 \RequirePackage{microtype}
+\RequirePackage{booktabs}
 
 % ======================================================== %
 % Konfiguracja i polecenia specjalne                       %
@@ -133,7 +144,7 @@
 
 % Zdefiniuj otoczenie dla dedykacji
 \newenvironment{dedykacja}{%
-  \clearpage\thispagestyle{empty}\mbox{}\vfill
+  \cleardoublepage\thispagestyle{empty}\mbox{}\vfill
   \hfill\begin{minipage}{0.5\textwidth}
   \begin{flushleft}
 }{
@@ -221,7 +232,7 @@
 
 % Zdefiniuj polecenie '\makestatement'
 \newcommand*{\makestatement}{%
-  \clearpage\thispagestyle{empty}%
+  \cleardoublepage\thispagestyle{empty}%
   {\noindent\normalfont\flushright{\@stdate{}}\strut\par}%
   \vskip 2.5 \baselineskip
   \vbox to 6 \baselineskip{%
