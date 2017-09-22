@@ -1,5 +1,5 @@
 %!TEX program=pdflatex
-\documentclass[twoside,leftblank,polski]{amuthesis}
+\documentclass[oneside,polski]{amuthesis}
 
 % Zdefiniuj kodowanie dokumentu
 \usepackage[utf8]{inputenc}
@@ -65,6 +65,44 @@ Klasę \texttt{amuthesis} dedykuję wszystkim tym, dla których wygląd ma równ
 % Początek zasadniczej części dokumentu
 \chapter{Klasa \texttt{amuthesis}}
 
+Główny plik klasy \texttt{amuthesis}, nazwany \texttt{amuthesis.cls}, zawiera definicje poleceń i otoczeń przydatnych w czasie tworzenia pracy dyplomowej. Opiera się przy tym na standardowych klasach: \texttt{book} dla prac w języku angielskim oraz \texttt{mwbk} dla prac w języku polskim.
 
+\section{Opcje}
+
+Klasa \texttt{amuthesis} wspiera parametry opcjonalne, których przekazanie powoduje dostosowanie finalnego dokumentu do bieżacych potrzeb. Tabela~\ref{table:amuthesis-opcje} zawiera ich uproszczony opis.
+
+\begin{table}[p]
+  \caption{Opcje klasy \texttt{amuthesis}}
+  \label{table:amuthesis-opcje}
+  \centering
+  \begin{tabular}{ccp{9cm}}
+    \toprule
+    Opcja & Domyślnie & Opis\\
+    \midrule
+    \texttt{polski} & Tak & Do pracy zostanie dołączony pakiet \texttt{polski}, a sam dokument zostanie oparty na klasie \texttt{mwbk}. W szczególności oznacza to, że wszystkie stosowane nazwy będą polskojęzyczne (np. ,,Rozdział''), a skład tekstu odbędzie się zgodnie z~polskimi normami.\\
+    \midrule
+    \texttt{english} & & Praca zostanie oparta na klasie \texttt{book}. Wszystkie stosowane nazwy będą anglojęzyczne (np. ,,Chapter''), a skład tekstu odbędzie się zgodnie z~anglosaskimi normami.\\
+    \midrule
+    \texttt{indent} & & Pierwszy akapit w ramach paragrafu zostanie wcięty. Jeśli do klasy nie zostanie przekazana opcja \texttt{indent}, to pierwsze akapity nie będą wcinane, niezależnie od języka, w którym składany jest dokument.\\
+    \midrule
+    \texttt{lineno} & & Wynikowy dokument zostanie wzbogacony o numerację wierszy.\\
+    \midrule
+    \texttt{oneside} & Tak & Wygenerowany dokument będzie przygotowany do druku jednostronnego lub publikacji elektronicznej.\\
+    \midrule
+    \texttt{twoside} & & Wygenerowany dokument będzie przygotowany do druku dwustronnego. Poszczególne części składowe pracy (np. rozdziały) będą się rozpoczynać zawsze od nieparzystej strony.\\
+    \midrule
+    \texttt{leftblank} & & Jeśli do klasy przekazano dodatkowo opcję \texttt{twoside}, to na pustej stronie przed kolejną częścią składową pracy (o ile taka występuje) zostanie umieszczony tekst ,,Ta strona jest pusta.''. Tekst ten można zmienić korzystając z~polecenia \verb`\leftblank`.\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Dodatkowe pakiety}
+
+Jeśli dokument jest oparty na klasie \texttt{amuthesis}, to można w nim korzystać z~wymienionych poniżej pakietów i nie wymaga to ich dodatkowego dołączania.
+
+\begin{verbatim}
+fontspec  geometry  hyperref  xcolor    amsmath   amssymb
+amsthm    graphicx  microtype booktabs  fancyhdr
+\end{verbatim}
 
 \end{document}
