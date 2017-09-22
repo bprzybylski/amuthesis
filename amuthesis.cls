@@ -154,7 +154,75 @@
 \RequirePackage{amsthm}
 \RequirePackage{graphicx}
 \RequirePackage{microtype}
+\RequirePackage{array}
+\RequirePackage{tabularx}
+\RequirePackage{longtable}
+\RequirePackage{makecell}
 \RequirePackage{booktabs}
+
+% ======================================================== %
+% Otoczenia                                                %
+% ======================================================== %
+
+\if@optpolski
+  \newcommand*{\amsthmtheorem}{Twierdzenie}
+  \newcommand*{\amsthmlemma}{Lemat}
+  \newcommand*{\amsthmstatement}{Hipoteza}
+  \newcommand*{\amsthmproposition}{Stwierdzenie}
+  \newcommand*{\amsthmcorollary}{Wniosek}
+
+  \newcommand*{\amsthmdefinition}{Definicja}
+  \newcommand*{\amsthmexample}{Przyk\l{}ad}
+  \newcommand*{\amsthmtask}{Zadanie}
+  \newcommand*{\amsthmexercise}{\'Cwiczenie}
+
+  \newcommand*{\amsthmremark}{Spostrze\.zenie}
+  \newcommand*{\amsthmnote}{Obserwacja}
+\else
+  \newcommand*{\amsthmtheorem}{Theorem}
+  \newcommand*{\amsthmlemma}{Lemma}
+  \newcommand*{\amsthmstatement}{Statement}
+  \newcommand*{\amsthmproposition}{Proposition}
+  \newcommand*{\amsthmcorollary}{Corollary}
+
+  \newcommand*{\amsthmdefinition}{Definition}
+  \newcommand*{\amsthmexample}{Example}
+  \newcommand*{\amsthmtask}{Task}
+  \newcommand*{\amsthmexercise}{Exercise}
+
+  \newcommand*{\amsthmremark}{Remark}
+  \newcommand*{\amsthmnote}{Note}
+\fi
+
+\theoremstyle{plain}
+\newtheorem{theorem}{\amsthmtheorem}[chapter]
+\newtheorem{twierdzenie}[theorem]{\amsthmtheorem}
+\newtheorem{lemma}[theorem]{\amsthmlemma}
+\newtheorem{lemat}[theorem]{\amsthmlemma}
+\newtheorem{statement}[theorem]{\amsthmstatement}
+\newtheorem{hipoteza}[theorem]{\amsthmstatement}
+\newtheorem{proposition}[theorem]{\amsthmproposition}
+\newtheorem{stwierdzenie}[theorem]{\amsthmproposition}
+\newtheorem{corollary}[theorem]{\amsthmcorollary}
+\newtheorem{wniosek}[theorem]{\amsthmcorollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}{\amsthmdefinition}[chapter]
+\newtheorem{definicja}[definition]{\amsthmdefinition}
+\newtheorem{example}{\amsthmexample}[chapter]
+\newtheorem{przyklad}[example]{\amsthmexample}
+\newtheorem{task}{\amsthmtask}[chapter]
+\newtheorem{zadanie}[task]{\amsthmtask}
+\newtheorem{exercise}[task]{\amsthmexercise}
+\newtheorem{cwiczenie}[task]{\amsthmexercise}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{\amsthmremark}
+\newtheorem{spostrzezenie}[theorem]{\amsthmremark}
+\newtheorem{note}[theorem]{\amsthmnote}
+\newtheorem{obserwacja}[theorem]{\amsthmnote}
+
+\newenvironment{dowod}{\begin{proof}}{\end{proof}}
 
 % ======================================================== %
 % Konfiguracja i polecenia specjalne                       %

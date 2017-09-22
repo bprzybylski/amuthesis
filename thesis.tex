@@ -74,7 +74,7 @@ Klasa \texttt{amuthesis} wspiera parametry opcjonalne, których przekazanie powo
 \begin{table}[p]
   \caption{Opcje klasy \texttt{amuthesis}}
   \label{table:amuthesis-opcje}
-  \centering
+  \begin{center}
   \begin{tabular}{ccp{9cm}}
     \toprule
     Opcja & Domyślnie & Opis\\
@@ -94,15 +94,60 @@ Klasa \texttt{amuthesis} wspiera parametry opcjonalne, których przekazanie powo
     \texttt{leftblank} & & Jeśli do klasy przekazano dodatkowo opcję \texttt{twoside}, to na pustej stronie przed kolejną częścią składową pracy (o ile taka występuje) zostanie umieszczony tekst ,,Ta strona jest pusta.''. Tekst ten można zmienić korzystając z~polecenia \verb`\leftblank`.\\
     \bottomrule
   \end{tabular}
+  \end{center}
 \end{table}
+
+\section{Otoczenia}
+
+Klasa \texttt{amuthesis} dostarcza szereg standardowych otoczeń, które mogą być wykorzystywane w tworzonym dokumencie. Każde z takich otoczeń występuje pod jednym z dwóch oznaczeń, ale stosowana w dokumencie nazwa zależy wyłącznie od języka dokumentu. Tabela~\ref{table:amuthesis-otoczenia} zawiera ich pełną listę. Elementy oddzielone poziomą linię współdzielą numerację w ramach rozdziałów.
+
+\begin{table}[p]
+  \caption{Otoczenia zdefiniowane w klasie \texttt{amuthesis}}
+  \label{table:amuthesis-otoczenia}
+  \begin{center}
+  \begin{tabular}{lll}
+    \toprule
+    Oznaczenia & Nazwa (pl) & Nazwa (en)\\
+    \midrule
+    \texttt{twierdzenie} / \texttt{theorem} & Twierdzenie & Theorem\\
+    \texttt{dowod} / \texttt{proof} & Dowód & Proof\\
+    \texttt{lemat} / \texttt{lemma} & Lemat & Lemma\\
+    \texttt{hipoteza} / \texttt{statement} & Hipoteza & Statement\\
+    \texttt{stwierdzenie} / \texttt{proposition} & Stwierdzenie & Proposition\\
+    \texttt{wniosek} / \texttt{corollary} & Wniosek & Corollary\\
+    \texttt{spostrzeżenie} / \texttt{remark} & Spostrzeżenie & Remark\\
+    \texttt{obserwacja} / \texttt{note} & Obserwacja & Note\\
+    \midrule
+    \texttt{definicja} / \texttt{definition} & Definicja & Definition\\
+    \midrule
+    \texttt{przyklad} / \texttt{example} & Przykład & Example\\
+    \midrule
+    \texttt{zadanie} / \texttt{task} & Zadanie & Task\\
+    \texttt{cwiczenie} / \texttt{exercise} & Ćwiczenie & Exercise\\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+\end{table}
+
+\begin{theorem}Lorem ipsum.\end{theorem}
+\begin{proof}Lorem ipsum.\end{proof}
+\begin{lemma}Lorem ipsum.\end{lemma}
+\begin{statement}Lorem ipsum.\end{statement}
+\begin{proposition}Lorem ipsum.\end{proposition}
+\begin{corollary}Lorem ipsum.\end{corollary}
+\begin{remark}Lorem ipsum.\end{remark}
+\begin{note}Lorem ipsum.\end{note}
+\begin{definition}Lorem ipsum.\end{definition}
+\begin{example}Lorem ipsum.\end{example}
+\begin{task}Lorem ipsum.\end{task}
+\begin{exercise}Lorem ipsum.\end{exercise}
 
 \section{Dodatkowe pakiety}
 
-Jeśli dokument jest oparty na klasie \texttt{amuthesis}, to można w nim korzystać z~wymienionych poniżej pakietów i nie wymaga to ich dodatkowego dołączania.
-
-\begin{verbatim}
-fontspec  geometry  hyperref  xcolor    amsmath   amssymb
-amsthm    graphicx  microtype booktabs  fancyhdr
-\end{verbatim}
+Jeśli dokument jest oparty na klasie \texttt{amuthesis}, to można w nim korzystać z~następujących pakietów bez dodatkowych działań:
+\texttt{fontspec},  \texttt{geometry},  \texttt{hyperref},  \texttt{xcolor},
+\texttt{amsmath},   \texttt{amssymb},   \texttt{amsthm},    \texttt{graphicx},
+\texttt{microtype}, \texttt{booktabs},  \texttt{fancyhdr},  \texttt{array},
+\texttt{tabularx},  \texttt{longtable}, \texttt{makecell}.
 
 \end{document}
