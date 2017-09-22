@@ -177,10 +177,14 @@
 % Oświadczenie                                             %
 % ======================================================== %
 
+\RequirePackage{ifthen}
+
 % Zdefiniuj parametry oświadczenia
 \newif\if@stmale
-\newcommand*{\stmale}{\@stmaletrue}
-\newcommand*{\stfemale}{\@stmalefalse}
+\@stmaletrue
+\newcommand*{\stsex}[1]{%
+  \ifthenelse{\equal{\unexpanded{#1}}{M}}{\@stmaletrue}{\@stmalefalse}%
+}
 
 \newcommand*{\stdate}[1]{\gdef\@stdate{#1}}
 \newcommand*{\@stdate}{}
