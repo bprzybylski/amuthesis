@@ -15,6 +15,10 @@
 \newif\if@optindent
 \DeclareOption{indent}{\@optindenttrue}
 
+% Zamiana numeru i nazwy otoczenia
+\newif\if@optswapthm
+\DeclareOption{swapthm}{\@optswapthmtrue}
+
 % Numerowanie wierszy
 \newif\if@optlineno
 \DeclareOption{lineno}{\@optlinenotrue}
@@ -192,6 +196,18 @@
 
   \newcommand*{\amsthmremark}{Remark}
   \newcommand*{\amsthmnote}{Note}
+\fi
+
+\if@optswapthm
+\def\swappedhead#1#2#3{%
+\if@optpolski
+\thmnumber{#2.}%
+\else
+\thmnumber{#2}%
+\fi
+\thmname{\@ifnotempty{#2}{~}#1}%
+\thmnote{ {\the\thm@notefont(#3)}}}
+\swapnumbers
 \fi
 
 \theoremstyle{plain}
