@@ -30,10 +30,10 @@
 % Oprzyj dokument na jednym z zestawów, w zależności
 % od statusu opcji 'optpolski'
 \if@optpolski
-  \LoadClass[oneside,12pt]{mwbk}
+  \LoadClass[oneside,11pt]{mwbk}
   \RequirePackage{polski}
 \else
-  \LoadClass[oneside,12pt]{book}
+  \LoadClass[oneside,11pt]{book}
 \fi
 
 % Uruchom numerację wierszy, jeśli do klasy przekazano
@@ -64,13 +64,39 @@
 % Podstawowe pakiety i ustawienia dokumentu                %
 % ======================================================== %
 
-% Upewnij się, że dokument jest składany UTF-8
-\RequirePackage[utf8]{inputenc}
+\RequirePackage{ifxetex}
+\RequirePackage{ifluatex}
+\newif\if@xetexorluatex
+\ifxetex
+  \@xetexorluatextrue
+\else
+  \ifluatex
+    \@xetexorluatextrue
+  \else
+    \@xetexorluatexfalse
+  \fi
+\fi
 
-% Składaj dokument fontem 'Adobe Utopia'
-\RequirePackage{fourier}
+% Obsługa fontów
+\if@xetexorluatex
+  %\RequirePackage{unicode-math}
+  \RequirePackage{fontspec}
+  \RequirePackage{mathpazo}
+  \RequirePackage{avant}
+  \setmainfont
+       [ BoldFont       = texgyrepagella-bold.otf ,
+         ItalicFont     = texgyrepagella-italic.otf ,
+         BoldItalicFont = texgyrepagella-bolditalic.otf ]
+       {texgyrepagella-regular.otf}
+  \newfontfamily\scshape[Letters=SmallCaps]{texgyrepagella-regular.otf}
+\else
+  % Upewnij się, że dokument jest składany UTF-8
+  \RequirePackage[utf8]{inputenc}
+  \RequirePackage[sc]{mathpazo}
+  \RequirePackage{avant}
+\fi
 % Dołącz font 'Souce Code Pro'
-\RequirePackage[scale=.9,semibold]{sourcecodepro}
+\RequirePackage[scale=.93,semibold]{sourcecodepro}
 
 % Ustal rozmiar dokumentu
 \RequirePackage{geometry}
@@ -225,7 +251,7 @@
   \if@stmale napisałem \else napisałam \fi %
   samodzielnie. Oznacza to, że przy pisaniu pracy, poza niezbędnymi konsultacjami, nie %
   \if@stmale korzystałem \else korzystałam \fi %
-  z pomocy innych osób, a w szczególności nie %
+  z pomocy innych osób, a~w~szczególności nie %
   \if@stmale zlecałem \else zlecałam \fi %
   opracowania rozprawy lub jej części innym osobom, ani nie %
   \if@stmale odpisywałem \else odpisywałam \fi %

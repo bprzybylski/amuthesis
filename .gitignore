@@ -9,3 +9,5 @@
 *.out
 *.toc
 *.xdv
+
+*.synctex(busy)
