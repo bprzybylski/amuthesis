@@ -180,7 +180,7 @@
 % Etykiety                                                 %
 % ======================================================== %
 
-\RequirePackage[justification=raggedright,
+\RequirePackage[justification=centering,
                 singlelinecheck=false,
                 labelsep=period]{caption}
 \DeclareCaptionFormat{stdcap}{\textbf{#1#2}#3\vspace*{0.5em}}
