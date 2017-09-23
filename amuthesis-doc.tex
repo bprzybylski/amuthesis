@@ -237,47 +237,11 @@ polecenie \texttt{footnote}.
 jest na dole tej strony, na której wywołane zostało
 polecenie \texttt{footnote}.
 
-\section{Wyciągi z kodów źródłowych}
-
-\begin{verbatim}
-\begin{lstlisting}[
-  language={C},
-  caption={Fragment pliku \texttt{cat.c}}
-]
-#include <unistd.h>
-
-#define BUFSIZ 128
-
-int main(){
-    char buf[BUFSIZ];
-    int n;
-
-    while ((n = read(0, buf, BUFSIZ)) > 0)
-        write(1, buf, n);
-    return 0;
-}
-\end{lstlisting}
-\end{verbatim}
-
-\begin{lstlisting}[
-  language={C},
-  caption={Zawartość pliku \texttt{cat.c}}
-]
-#include <unistd.h>
-
-#define BUFSIZ 128
-
-int main(){
-    char buf[BUFSIZ];
-    int n;
-
-    while ((n = read(0, buf, BUFSIZ)) > 0)
-        write(1, buf, n);
-    return 0;
-}
-\end{lstlisting}
-
 \section{Wzory matematyczne}
+
+Wzory matematyczne mogą być umieszczane albo jako część tekstu, albo jako osobny element. Chociaż poniższe przykłady proponują przechodzenie do trybu matematycznego za pomocą sekwencji \verb|$| i \verb|$$|, to równie dobrze można użyć do tego celu poleceń \verb|\(| (i \verb|\)|) oraz \verb|\[| (i \verb|\]|), odpowiednio.
+
+\subsection{Wzory wstawione}
 
 \begin{verbatim}
 Zgodnie z twierdzeniem Pitagorasa, suma kwadratów długości
@@ -285,7 +249,17 @@ przyprostokątnych trójkąta prostokątnego równa jest kwadratowi
 długości jego przeciwprostokątnej. Możemy więc napisać, że
 $a^2 + b^2 = c^2,$ jeśli $a$, $b$ i $c$ opisują
 te wartości, kolejno.
+\end{verbatim}
 
+\noindent Zgodnie z twierdzeniem Pitagorasa, suma kwadratów długości
+przyprostokątnych trójkąta prostokątnego równa jest kwadratowi
+długości jego przeciwprostokątnej. Możemy więc napisać, że
+$a^2 + b^2 = c^2,$ jeśli $a$, $b$ i $c$ opisują
+te wartości, kolejno.
+
+\subsection{Wzory wystawione}
+
+\begin{verbatim}
 Zgodnie z twierdzeniem Pitagorasa, suma kwadratów długości
 przyprostokątnych trójkąta prostokątnego równa jest kwadratowi
 długości jego przeciwprostokątnej. Możemy więc napisać, że
@@ -296,12 +270,6 @@ te wartości, kolejno.
 \noindent Zgodnie z twierdzeniem Pitagorasa, suma kwadratów długości
 przyprostokątnych trójkąta prostokątnego równa jest kwadratowi
 długości jego przeciwprostokątnej. Możemy więc napisać, że
-$a^2 + b^2 = c^2,$ jeśli $a$, $b$ i $c$ opisują
-te wartości, kolejno.
-
-Zgodnie z twierdzeniem Pitagorasa, suma kwadratów długości
-przyprostokątnych trójkąta prostokątnego równa jest kwadratowi
-długości jego przeciwprostokątnej. Możemy więc napisać, że
 $$a^2 + b^2 = c^2,$$ jeśli $a$, $b$ i $c$ opisują
 te wartości, kolejno.
 
@@ -310,7 +278,7 @@ te wartości, kolejno.
 \begin{verbatim}
 \begin{twierdzenie}
 Jeśli $a$ i $b$ reprezentują długości przyprostokątnych
-trójkąta prostokątnego, a $c$ długość jego przciwprostokątnej,
+trójkąta prostokątnego, a $c$ długość jego przeciwprostokątnej,
 to $a^2 + b^2 = c^2.$
 \end{twierdzenie}
 \end{verbatim}
@@ -320,5 +288,37 @@ Jeśli $a$ i $b$ reprezentują długości przyprostokątnych
 trójkąta prostokątnego, a $c$ długość jego przeciwprostokątnej,
 to $a^2 + b^2 = c^2.$
 \end{twierdzenie}
+
+\section{Wyciągi z kodów źródłowych}
+
+Wyciągi kodów źródłowych można umieszczać w dokumencie z wykorzystaniem otoczenia \texttt{lstlisting}. Klasa \texttt{amuthesis} wprowadza własny styl formatowania wyciągów. Można go jednak zmodyfikować korzystając z opcji pakietu \texttt{listings}.
+
+\begin{verbatim}
+\begin{lstlisting}[
+  language={C},
+  caption={Fragment pliku \texttt{cat.c}}
+]
+int main(){
+    char buf[128];
+    int n;
+    while ((n = read(0, buf, 128)) > 0)
+        write(1, buf, n);
+    return 0;
+}
+\end{lstlisting}
+\end{verbatim}
+
+\begin{lstlisting}[
+  language={C},
+  caption={Fragment pliku \texttt{cat.c}}
+]
+int main(){
+    char buf[128];
+    int n;
+    while ((n = read(0, buf, 128)) > 0)
+        write(1, buf, n);
+    return 0;
+}
+\end{lstlisting}
 
 \end{document}
