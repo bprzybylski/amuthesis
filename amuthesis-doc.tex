@@ -109,8 +109,216 @@ amsthm    graphicx  microtype booktabs  array     fancyhdr
 tabularx  longtable makecell  verbatim  listings
 \end{verbatim}
 
-\chapter{Podstawowa struktura dokumentu}
+\chapter{Podstawowe elementy dokumentu}
 
-Plik \texttt{thesis.tex} zawiera opis pustego dokumentu tworzonego w oparciu o klasę \texttt{amuthesis}. Możesz go uzupełnić treścią według własnego uznania.
+Plik \texttt{thesis.tex} zawiera opis pustego dokumentu tworzonego w oparciu o klasę \texttt{amuthesis}. Możesz go uzupełnić treścią według własnego uznania. Poniżej zaprezentowano kilka przykładowych fragmentów kodu.
+
+\section{Tekst ciągły}
+
+\begin{verbatim}
+Klasa \texttt{amuthesis} została stworzona z myślą
+o~\textbf{studentach} ostatnich lat studiów
+\emph{licencjackich}, \emph{inżynierskich}
+i~\emph{magisterskich} na Wydziale Matematyki i~Informatyki
+Uniwersytetu im.~Adama Mickiewicza w Poznaniu (\dots)
+\end{verbatim}
+
+\noindent Klasa \texttt{amuthesis} została stworzona z myślą
+o~\textbf{studentach} ostatnich lat studiów
+\emph{licencjackich}, \emph{inżynierskich} i
+\emph{magisterskich} na Wydziale Matematyki i~Informatyki
+Uniwersytetu im. Adama Mickiewicza w Poznaniu (\dots)
+
+\section{Listy}
+
+\begin{verbatim}
+\begin{enumerate}
+  \item Podpunkt A
+  \begin{itemize}
+    \item Podpunkt A1
+    \item Podpunkt A2
+  \end{itemize}
+  \item Podpunkt B
+  \item Podpunkt C
+\end{enumerate}
+\end{verbatim}
+
+\begin{enumerate}
+  \item Podpunkt A
+  \begin{itemize}
+    \item Podpunkt A1
+    \item Podpunkt A2
+  \end{itemize}
+  \item Podpunkt B
+  \item Podpunkt C
+\end{enumerate}
+
+\section{Obrazy i odnośniki do nich}
+
+\begin{verbatim}
+\begin{figure}
+  \centering
+  \includegraphics[width=6cm]{uam-logo.pdf}
+  \caption{Przykładowy obraz}
+  \label{obraz-przyklad}
+\end{figure}
+\end{verbatim}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=6cm]{uam-logo.pdf}
+  \caption{Przykładowy obraz}
+  \label{obraz-przyklad}
+\end{figure}
+
+\begin{verbatim}
+Logo Uniwersytetu im.~Adama Mickiewicza w Poznaniu zostało
+umieszczone na rysunku~\ref{obraz-przyklad}, który znajduje się
+na stronie~\pageref{obraz-przyklad}.
+\end{verbatim}
+
+\noindent Logo Uniwersytetu im.~Adama Mickiewicza w Poznaniu zostało
+umieszczone na rysunku~\ref{obraz-przyklad}, który znajduje się
+na stronie~\pageref{obraz-przyklad}.
+
+\section{Tabele i odnośniki do nich}
+
+\begin{verbatim}
+\begin{table}
+  \caption{Przykładowa tabela}
+  \label{tabela-przyklad}
+  \centering
+  \begin{tabular}{lrr}
+    \toprule
+    Produkt & Cena netto & Stawka VAT\\
+    \midrule
+    Książka & 30,00 & 5\%\\
+    Napoje & 10,00 & 8\%\\
+    Jedzenie & 12,00 & 12\%\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\end{verbatim}
+
+\begin{table}[h]
+  \caption{Przykładowa tabela}
+  \label{tabela-przyklad}
+  \centering
+  \begin{tabular}{lrr}
+    \toprule
+    Produkt & Cena netto & Stawka VAT\\
+    \midrule
+    Książka & 30,00 & 5\%\\
+    Napoje & 10,00 & 8\%\\
+    Jedzenie & 12,00 & 12\%\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{verbatim}
+Dane o cenach produktów zostały zebrane w tabeli
+\ref{tabela-przyklad}, którą możesz zobaczyć na stronie
+\pageref{tabela-przyklad}.
+\end{verbatim}
+
+\noindent Dane o cenach produktów zostały zebrane w tabeli
+\ref{tabela-przyklad}, którą możesz zobaczyć na stronie
+\pageref{tabela-przyklad}.
+
+\section{Przypisy dolne}
+
+\begin{verbatim}
+Przypis dolny\footnote{To jest przypis dolny.} umieszczany
+jest na dole tej strony, na której wywołane zostało
+polecenie \texttt{footnote}.
+\end{verbatim}
+
+\noindent Przypis dolny\footnote{To jest przypis dolny.} umieszczany
+jest na dole tej strony, na której wywołane zostało
+polecenie \texttt{footnote}.
+
+\section{Wyciągi z kodów źródłowych}
+
+\begin{verbatim}
+\begin{lstlisting}[
+  language={C},
+  caption={Fragment pliku \texttt{cat.c}}
+]
+#include <unistd.h>
+
+#define BUFSIZ 128
+
+int main(){
+    char buf[BUFSIZ];
+    int n;
+
+    while ((n = read(0, buf, BUFSIZ)) > 0)
+        write(1, buf, n);
+    return 0;
+}
+\end{lstlisting}
+\end{verbatim}
+
+\begin{lstlisting}[
+  language={C},
+  caption={Zawartość pliku \texttt{cat.c}}
+]
+#include <unistd.h>
+
+#define BUFSIZ 128
+
+int main(){
+    char buf[BUFSIZ];
+    int n;
+
+    while ((n = read(0, buf, BUFSIZ)) > 0)
+        write(1, buf, n);
+    return 0;
+}
+\end{lstlisting}
+
+\section{Wzory matematyczne}
+
+\begin{verbatim}
+Zgodnie z twierdzeniem Pitagorasa, suma kwadratów długości
+przyprostokątnych trójkąta prostokątnego równa jest kwadratowi
+długości jego przeciwprostokątnej. Możemy więc napisać, że
+$a^2 + b^2 = c^2,$ jeśli $a$, $b$ i $c$ opisują
+te wartości, kolejno.
+
+Zgodnie z twierdzeniem Pitagorasa, suma kwadratów długości
+przyprostokątnych trójkąta prostokątnego równa jest kwadratowi
+długości jego przeciwprostokątnej. Możemy więc napisać, że
+$$a^2 + b^2 = c^2,$$ jeśli $a$, $b$ i $c$ opisują
+te wartości, kolejno.
+\end{verbatim}
+
+\noindent Zgodnie z twierdzeniem Pitagorasa, suma kwadratów długości
+przyprostokątnych trójkąta prostokątnego równa jest kwadratowi
+długości jego przeciwprostokątnej. Możemy więc napisać, że
+$a^2 + b^2 = c^2,$ jeśli $a$, $b$ i $c$ opisują
+te wartości, kolejno.
+
+Zgodnie z twierdzeniem Pitagorasa, suma kwadratów długości
+przyprostokątnych trójkąta prostokątnego równa jest kwadratowi
+długości jego przeciwprostokątnej. Możemy więc napisać, że
+$$a^2 + b^2 = c^2,$$ jeśli $a$, $b$ i $c$ opisują
+te wartości, kolejno.
+
+\section{Otoczenia}
+
+\begin{verbatim}
+\begin{twierdzenie}
+Jeśli $a$ i $b$ reprezentują długości przyprostokątnych
+trójkąta prostokątnego, a $c$ długość jego przciwprostokątnej,
+to $a^2 + b^2 = c^2.$
+\end{twierdzenie}
+\end{verbatim}
+
+\begin{twierdzenie}
+Jeśli $a$ i $b$ reprezentują długości przyprostokątnych
+trójkąta prostokątnego, a $c$ długość jego przeciwprostokątnej,
+to $a^2 + b^2 = c^2.$
+\end{twierdzenie}
 
 \end{document}
