@@ -11,7 +11,8 @@ Główny plik klasy `amuthesis`, nazwany `amuthesis.cls`, zawiera definicje pole
 Poza tym, repozytorium zawiera dodatkowe pliki:
 
 * `amuthesis-doc.tex` oraz `amuthesis-doc.pdf` – pliki te zawierają opis możliwości klasy,
-* `thesis.tex` oraz `thesis.pdf` – pliki te stanowią szkielet, na którym można oprzeć swoją pracę dyplomową.
+* `thesis.tex` oraz `thesis.pdf` – pliki te stanowią szkielet, na którym można oprzeć swoją pracę dyplomową,
+* `uam-logo.pdf` – plik zawiera logo UAM, które może być wykorzystane na stronie tytułowej pracy.
 
 ## Jak używać klasy `amuthesis`?
 * [Pobierz](https://github.com/bprzybylski/amuthesis/archive/master.zip) i wypakuj archiwum `zip` z aktualną zawartością repozytorium.
