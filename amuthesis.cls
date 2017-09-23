@@ -335,6 +335,9 @@
 \newcommand*{\@field}{}
 \newcommand*{\supervisor}[1]{\gdef\@supervisor{#1}}
 \newcommand*{\@supervisor}{}
+\newcommand*{\specialty}[1]{\gdef\@specialty{#1}}
+\newcommand*{\@specialty}{}
+\specialty{}
 
 \if@optpolski
   \title{\@titlePL}
@@ -381,7 +384,10 @@
   \fi
   \vfill
   {\noindent\normalfont\centering{%
-    Praca \@type{} na kierunku \@field{}\\
+    Praca \@type{} na kierunku {\bfseries\@field{}}\\
+    \ifthenelse{\equal{\@specialty}{}}{}{
+      (specjalno\'s\'c: \@specialty)\\
+    }
     napisana pod opiek\k{a}\\
     \bfseries{\@supervisor}%
   }\strut\par}%
