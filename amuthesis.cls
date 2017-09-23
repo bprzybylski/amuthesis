@@ -449,11 +449,10 @@
   }%
   {
   \vspace{2cm}%
-  \small%
-  \noindent[\uppercase{\@stread}]{\hskip 4pt}--{\hskip 4pt}%
-  wyra\.zam zgod\k{e} na udost\k{e}pnianie mojej pracy w czytelni Archiwum UAM\par
-  \noindent[\uppercase{\@stprotect}]{\hskip 4pt}--{\hskip 4pt}%
-  wyra\.zam zgod\k{e} na udost\k{e}pnianie mojej pracy w zakresie koniecznym do ochrony mojego prawa do autorstwa lub praw os\'ob trzecich\par
+  \small\noindent\begin{tabularx}{\textwidth}{@{}lX}
+  {[\uppercase{\@stread}]} & wyra\.zam zgod\k{e} na udost\k{e}pnianie mojej pracy w czytelni Archiwum UAM\\[1ex]
+  {[\uppercase{\@stprotect}]} & wyra\.zam zgod\k{e} na udost\k{e}pnianie mojej pracy w zakresie koniecznym do ochrony mojego prawa do autorstwa lub praw os\'ob trzecich\\
+  \end{tabularx}
   }
   \clearpage
 }
