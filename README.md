@@ -17,4 +17,4 @@ Poza tym, repozytorium zawiera dodatkowe pliki:
 ## Jak używać klasy `amuthesis`?
 * [Pobierz](https://github.com/bprzybylski/amuthesis/archive/master.zip) i wypakuj archiwum `zip` z aktualną zawartością repozytorium.
 * Zapoznaj się z zawartością pliku `amuthesis-doc.pdf`.
-* Uzupełnij plik `thesis.tex` treścią i skopiluj go z wykorzystaniem jednego z trzech wymienionych wyżej kompilatorów.
+* Uzupełnij plik `thesis.tex` treścią i skompiluj go z wykorzystaniem jednego z trzech wymienionych wyżej kompilatorów.
