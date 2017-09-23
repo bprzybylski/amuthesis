@@ -15,6 +15,10 @@
 \newif\if@optindent
 \DeclareOption{indent}{\@optindenttrue}
 
+% Logo zamiast nazwy uczelni
+\newif\if@optlogo
+\DeclareOption{logo}{\@optlogotrue}
+
 % Zamiana numeru i nazwy otoczenia
 \newif\if@optswapthm
 \DeclareOption{swapthm}{\@optswapthmtrue}
@@ -341,18 +345,32 @@
 % Zdefiniuj polecenie '\maketitle'
 \renewcommand*{\maketitle}{%
   \clearpage\thispagestyle{empty}%
-  {\noindent\centering\scshape\large%
-    Uniwersytet im. Adama Mickiewicza w Poznaniu%
-  \strut\par}%
-  {\noindent\centering\normalfont%
-    Wydzia\l{} Matematyki i Informatyki%
-  \strut\par}%
-  \vspace{2.5cm}
-  {\noindent\centering\normalfont\@author\strut\par}%
-  {\noindent\centering\normalfont%
-    Numer albumu: %
-    \@album\strut\par}%
-  \vspace{2.5cm}
+  \if@optlogo
+    {\noindent\centering%
+    \includegraphics[width=5cm]{uam-logo.pdf}\par}%
+    {\noindent\centering\normalfont%
+      Wydzia\l{} Matematyki i Informatyki%
+    \strut\par}%
+    \vspace{2cm}
+    {\noindent\centering\normalfont\@author\strut\par}%
+    {\noindent\centering\normalfont%
+      Numer albumu: %
+      \@album\strut\par}%
+    \vspace{2cm}
+  \else
+    {\noindent\centering\scshape\large%
+      Uniwersytet im. Adama Mickiewicza w Poznaniu%
+    \strut\par}%
+    {\noindent\centering\normalfont%
+      Wydzia\l{} Matematyki i Informatyki%
+    \strut\par}%
+    \vspace{2.5cm}
+    {\noindent\centering\normalfont\@author\strut\par}%
+    {\noindent\centering\normalfont%
+      Numer albumu: %
+      \@album\strut\par}%
+    \vspace{2.5cm}
+  \fi
   % Uzależnij kolejność tytułów od wybranego języka
   \if@optpolski
     {\noindent\centering\Large\@titlePL\strut\par}%
@@ -367,7 +385,7 @@
     napisana pod opiek\k{a}\\
     \bfseries{\@supervisor}%
   }\strut\par}%
-  \vspace{2.5cm}%
+  \vspace{2cm}%
   {\noindent\centering\normalfont\@date\strut\par}
 }
 
