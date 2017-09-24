@@ -512,7 +512,7 @@
 
 % Paragrafy
 \RenewDocumentCommand\section{sm}{%
-  \stepcounter{section}\phantomsection
+  \stepcounter{section}
   \vskip 2 \baselineskip
   \IfBooleanTF{#1}{%
     \vbox to 2 \baselineskip{%
@@ -528,9 +528,11 @@
     \bgroup%
       \fontsize{14pt}{24pt}\selectfont\centering%
       \if@optpolski
+        \phantomsection
         \addcontentsline{toc}{section}{\thesection.~\hskip 0.25em #2}%
         \textsc{\thesection.~\hskip 0.25em #2}\par%
       \else
+        \phantomsection
         \addcontentsline{toc}{section}{\thesection~\hskip 1em #2}%
         \textsc{\thesection~\hskip 1em #2}\par%
       \fi
@@ -554,7 +556,7 @@
 
 % Podparagrafy
 \RenewDocumentCommand\subsection{sm}{%
-  \stepcounter{subsection}\phantomsection
+  \stepcounter{subsection}
   \vskip 2 \baselineskip
   \IfBooleanTF{#1}{%
     \vbox to 1 \baselineskip{%
@@ -569,9 +571,11 @@
     \bgroup%
       \noindent
       \if@optpolski
+        \phantomsection
         \addcontentsline{toc}{subsection}{\thesubsection.~\hskip 0.25em #2}%
         \textbf{\thesubsection.~\hskip 0.25em #2}\par%
       \else
+        \phantomsection
         \addcontentsline{toc}{subsection}{\thesubsection~\hskip 1em #2}%
         \textbf{\thesubsection~\hskip 1em #2}\par%
       \fi
