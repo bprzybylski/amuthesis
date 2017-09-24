@@ -471,7 +471,7 @@
 
 % Rozdziały
 \RenewDocumentCommand\chapter{sm}{%
-  \cleardoublepage\mbox{}
+  \cleardoublepage\phantomsection\mbox{}
   \vskip 3 \baselineskip
   \thispagestyle{plain}
   \IfBooleanTF{#1}{%
@@ -512,7 +512,7 @@
 
 % Paragrafy
 \RenewDocumentCommand\section{sm}{%
-  \stepcounter{section}
+  \stepcounter{section}\phantomsection
   \vskip 2 \baselineskip
   \IfBooleanTF{#1}{%
     \vbox to 2 \baselineskip{%
@@ -554,7 +554,7 @@
 
 % Podparagrafy
 \RenewDocumentCommand\subsection{sm}{%
-  \stepcounter{subsection}
+  \stepcounter{subsection}\phantomsection
   \vskip 2 \baselineskip
   \IfBooleanTF{#1}{%
     \vbox to 1 \baselineskip{%
