@@ -1,21 +1,47 @@
+% ======================================================== %
+% Przeczytaj plik amuthesis-doc.pdf, aby poznać opcje      %
+% klasy `amuthesis`                                        %
+% ======================================================== %
 \documentclass[oneside,polski,logo]{amuthesis}
 
-% Zdefiniuj kodowanie dokumentu
+% Zdefiniuj kodowanie pliku źródłowego (domyślnie utf8)
 \usepackage[utf8]{inputenc}
+
+% ======================================================== %
+% Dane autora i pracy                                      %
+% ======================================================== %
 
 % --- Autor pracy
 \author{Jan Kowalski}
 % --- Numer albumu
 \album{123456}
-% --- Tytuł pracy
+% --- Tytuł pracy (w języku polskim i angielskim)
 \titlePL{Moja praca}
 \titleEN{My thesis}
 % --- Typ pracy (inżynierska, licencjacka, magisterska)
 \type{magisterska}
+% --- Wydział (wykaz skrótów):
+% --- --- WA    --- Wydział Anglistyki
+% --- --- WB    --- Wydział Biologii
+% --- --- WCh   --- Wydział Chemii
+% --- --- WFPiK --- Wydział Filologii Polskiej i Klasycznej
+% --- --- WF    --- Wydział Fizyki
+% --- --- WH    --- Wydział Historyczny
+% --- --- WMiI  --- Wydział Matematyki i Informatyki
+% --- --- WNGiG --- Wydział Nauk Geograficznych i Geologicznych
+% --- --- WNPiD --- Wydział Nauk Politycznych i Dziennikarstwa
+% --- --- WNS   --- Wydział Nauk Społecznych
+% --- --- WN    --- Wydział Neofilologii
+% --- --- WPAK  --- Wydział Pedagogiczno-Artystyczny w Kaliszu
+% --- --- WPiA  --- Wydział Prawa i Administracji
+% --- --- WSE   --- Wydział Studiów Edukacyjnych
+% --- --- WT    --- Wydział Teologiczny
+% --- --- IKE   --- Instytut Kultury Europejskiej w Gnieźnie
+\faculty{WMiI}
 % --- Kierunek (w mianowniku)
 \field{matematyka}
-% --- Specjalność (w mianowniku)
-% --- Ustaw puste, jeśli nie dotyczy
+% --- Specjalność (w formie mianownikowej)
+% --- (ustaw puste, jeśli bez specjalności)
 \specialty{finansowa i aktuarialna}
 % --- Promotor (w dopełniaczu)
 \supervisor{prof. UAM dr. hab. Jana Nowaka}
@@ -28,17 +54,19 @@
 \stread{TAK}
 % --- Zgoda na udostępnienie pracy w zakresie ochrony (TAK/NIE)
 \stprotect{TAK}
-
 % --- Data podpisania oświadczenia (Miasto, data)
 \stdate{Poznań, \today{} r.}
 
-% Pozostałe opcje (odkomentuj pożądane)
-% \leftblank{Ta strona jest pusta.}
+% ======================================================== %
+% Dodatkowe pakiety wykorzystywane w pracy                 %
+% ======================================================== %
 
-% Umieść dodatkowe pakiety tutaj
 \usepackage{lipsum}
 
-% Początek dokumentu
+% ======================================================== %
+% Zasadnicza część dokumentu                               %
+% ======================================================== %
+
 \begin{document}
 
 % Strona tytułowa
@@ -68,7 +96,10 @@ Tu możesz umieścić swoją dedykację.
 % Spis treści
 \tableofcontents
 
-% Początek zasadniczej części dokumentu
+% ======================================================== %
+% Właściwa część pracy                                     %
+% ======================================================== %
+
 \chapter{Treść mojej pracy}
 
 \lipsum[3]

@@ -322,6 +322,8 @@
 % Strona tytułowa                                          %
 % ======================================================== %
 
+\RequirePackage{ifthen}
+
 % Zdefiniuj parametry strony tytułowej
 \newcommand*{\titlePL}[1]{\gdef\@titlePL{#1}}
 \newcommand*{\@titlePL}{}
@@ -339,6 +341,100 @@
 \newcommand*{\@specialty}{}
 \specialty{}
 
+% Wydział
+\newcommand*{\faculty}[1]{\gdef\@faculty{#1}}
+\newcommand*{\@faculty}{}
+\newcommand*{\facultyM}[1]{\gdef\@facultyM{#1}}
+\newcommand*{\@facultyM}{}
+\newcommand*{\facultyD}[1]{\gdef\@facultyD{#1}}
+\newcommand*{\@facultyD}{}
+
+\facultyM{\emph{[Zdefiniuj wydzia\l{}]}}
+\facultyD{\emph{[Zdefiniuj wydzia\l{}]}}
+
+\newcommand*{\setfaculty}{
+  % --- WA --- Wydział Anglistyki
+  \ifthenelse{\equal{\@faculty}{WA}}{
+    \facultyM{Wydzia\l{} Anglistyki}
+    \facultyD{Wydzia\l{}u Anglistyki}
+  }{}
+  % --- WB --- Wydział Biologii
+  \ifthenelse{\equal{\@faculty}{WB}}{
+    \facultyM{Wydzia\l{} Biologii}
+    \facultyD{Wydzia\l{}u Biologii}
+  }{}
+  % --- WCh --- Wydział Chemii
+  \ifthenelse{\equal{\@faculty}{WCh}}{
+    \facultyM{Wydzia\l{} Chemii}
+    \facultyD{Wydzia\l{}u Chemii}
+  }{}
+  % --- WFPiK --- Wydział Filologii Polskiej i Klasycznej
+  \ifthenelse{\equal{\@faculty}{WFPiK}}{
+    \facultyM{Wydzia\l{} Filologii Polskiej i~Klasycznej}
+    \facultyD{Wydzia\l{}u Filologii Polskiej i~Klasycznej}
+  }{}
+  % --- WF --- Wydział Fizyki
+  \ifthenelse{\equal{\@faculty}{WF}}{
+    \facultyM{Wydzia\l{} Fizyki}
+    \facultyD{Wydzia\l{}u Fizyki}
+  }{}
+  % --- WH --- Wydział Historyczny
+  \ifthenelse{\equal{\@faculty}{WH}}{
+    \facultyM{Wydzia\l{} Historyczny}
+    \facultyD{Wydzia\l{}u Historycznego}
+  }{}
+  % --- WMiI --- Wydział Matematyki i Informatyki
+  \ifthenelse{\equal{\@faculty}{WMiI}}{
+    \facultyM{Wydzia\l{} Matematyki i~Informatyki}
+    \facultyD{Wydzia\l{}u Matematyki i~Informatyki}
+  }{}
+  % --- WNGiG --- Wydział Nauk Geograficznych i Geologicznych
+  \ifthenelse{\equal{\@faculty}{WNGiG}}{
+    \facultyM{Wydzia\l{} Nauk Geograficznych i~Geologicznych}
+    \facultyD{Wydzia\l{}u Nauk Geograficznych i~Geologicznych}
+  }{}
+  % --- WNPiD --- Wydział Nauk Politycznych i Dziennikarstwa
+  \ifthenelse{\equal{\@faculty}{WNPiD}}{
+    \facultyM{Wydzia\l{} Nauk Politycznych i~Dziennikarstwa}
+    \facultyD{Wydzia\l{}u Nauk Politycznych i~Dziennikarstwa}
+  }{}
+  % --- WNS --- Wydział Nauk Społecznych
+  \ifthenelse{\equal{\@faculty}{WNS}}{
+    \facultyM{Wydzia\l{} Nauk Spo\l{}ecznych}
+    \facultyD{Wydzia\l{}u Nauk Spo\l{}ecznych}
+  }{}
+  % --- WN --- Wydział Neofilologii
+  \ifthenelse{\equal{\@faculty}{WN}}{
+    \facultyM{Wydzia\l{} Neofilologii}
+    \facultyD{Wydzia\l{}u Neofilologii}
+  }{}
+  % --- WPAK --- Wydział Pedagogiczno-Artystyczny w Kaliszu
+  \ifthenelse{\equal{\@faculty}{WPAK}}{
+    \facultyM{Wydzia\l{} Pedagogiczno-Artystyczny w~Kaliszu}
+    \facultyD{Wydzia\l{}u Pedagogiczno-Artystycznego w~Kaliszu}
+  }{}
+  % --- WPiA --- Wydział Prawa i Administracji
+  \ifthenelse{\equal{\@faculty}{WPiA}}{
+    \facultyM{Wydzia\l{} Prawa i~Administracji}
+    \facultyD{Wydzia\l{}u Prawa i~Administracji}
+  }{}
+  % --- WSE --- Wydział Studiów Edukacyjnych
+  \ifthenelse{\equal{\@faculty}{WSE}}{
+    \facultyM{Wydzia\l{} Studi\'ow Edukacyjnych}
+    \facultyD{Wydzia\l{}u Studi\'ow Edukacyjnych}
+  }{}
+  % --- WT --- Wydział Teologiczny
+  \ifthenelse{\equal{\@faculty}{WT}}{
+    \facultyM{Wydzia\l{} Teologiczny}
+    \facultyD{Wydzia\l{}u Teologicznego}
+  }{}
+  % --- IKE --- Instytut Kultury Europejskiej w Gnieźnie
+  \ifthenelse{\equal{\@faculty}{IKE}}{
+    \facultyM{Instytut Kultury Europejskiej w~Gnie\'znie}
+    \facultyD{Instytutu Kultury Europejskiej w~Gnie\'znie}
+  }{}
+}
+
 \if@optpolski
   \title{\@titlePL}
 \else
@@ -348,11 +444,12 @@
 % Zdefiniuj polecenie '\maketitle'
 \renewcommand*{\maketitle}{%
   \clearpage\thispagestyle{empty}%
+  \setfaculty
   \if@optlogo
     {\noindent\centering%
     \includegraphics[width=5cm]{uam-logo.pdf}\par}%
     {\noindent\centering\normalfont%
-      Wydzia\l{} Matematyki i Informatyki%
+      \@facultyM
     \strut\par}%
     \vspace{2cm}
     {\noindent\centering\normalfont\@author\strut\par}%
@@ -365,7 +462,7 @@
       Uniwersytet im. Adama Mickiewicza w Poznaniu%
     \strut\par}%
     {\noindent\centering\normalfont%
-      Wydzia\l{} Matematyki i Informatyki%
+      \@facultyM
     \strut\par}%
     \vspace{2.5cm}
     {\noindent\centering\normalfont\@author\strut\par}%
@@ -399,8 +496,6 @@
 % Oświadczenie                                             %
 % ======================================================== %
 
-\RequirePackage{ifthen}
-
 % Zdefiniuj parametry oświadczenia
 \newif\if@stmale
 \@stmaletrue
@@ -418,6 +513,7 @@
 % Zdefiniuj polecenie '\makestatement'
 \newcommand*{\makestatement}{%
   \cleardoublepage\thispagestyle{empty}%
+  \setfaculty
   {\noindent\normalfont\flushright{\@stdate{}}\strut\par}%
   \vskip 2.5 \baselineskip
   \vbox to 6 \baselineskip{%
@@ -442,7 +538,7 @@
   \if@stmale podpisany \else podpisana \fi %
   {\bfseries\@author}, %
   \if@stmale student \else studentka \fi %
-  Wydzia\l{}u Matematyki i~Informatyki Uniwersytetu im.~Adama Mickiewicza w Poznaniu o\'swiadczam, \.ze przedk\l{}adan\k{a} prac\k{e} dyplomow\k{a} pt. %
+  \@facultyD{} Uniwersytetu im.~Adama Mickiewicza w Poznaniu o\'swiadczam, \.ze przedk\l{}adan\k{a} prac\k{e} dyplomow\k{a} pt. %
   \emph{\@title} %
   \if@stmale napisa\l{}em \else napisa\l{}am \fi %
   samodzielnie. Oznacza to, \.ze przy pisaniu pracy, poza niezb\k{e}dnymi konsultacjami, nie %
@@ -456,8 +552,8 @@
   {
   \vspace{2cm}%
   \small\noindent\begin{tabularx}{\textwidth}{@{}lX}
-  {[\uppercase{\@stread}]} & wyra\.zam zgod\k{e} na udost\k{e}pnianie mojej pracy w czytelni Archiwum UAM\\[1ex]
-  {[\uppercase{\@stprotect}]} & wyra\.zam zgod\k{e} na udost\k{e}pnianie mojej pracy w zakresie koniecznym do ochrony mojego prawa do autorstwa lub praw os\'ob trzecich\\
+  {[\texttt{\uppercase{\@stread}}]} & wyra\.zam zgod\k{e} na udost\k{e}pnianie mojej pracy w czytelni Archiwum UAM\\[1ex]
+  {[\texttt{\uppercase{\@stprotect}}]} & wyra\.zam zgod\k{e} na udost\k{e}pnianie mojej pracy w zakresie koniecznym do ochrony mojego prawa do autorstwa lub praw os\'ob trzecich\\
   \end{tabularx}
   }
   \clearpage
