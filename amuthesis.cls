@@ -197,7 +197,7 @@
 }
 
 \if@optpolski
-  \renewcommand{\lstlistingname}{Wyciąg}
+  \renewcommand{\lstlistingname}{Wyci\k{a}g}
 \else
   \renewcommand{\lstlistingname}{Listing}
 \fi
