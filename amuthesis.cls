@@ -329,8 +329,30 @@
 \newcommand*{\@titlePL}{}
 \newcommand*{\titleEN}[1]{\gdef\@titleEN{#1}}
 \newcommand*{\@titleEN}{}
-\newcommand*{\album}[1]{\gdef\@album{#1}}
-\newcommand*{\@album}{}
+% \firstAuthor
+\newcommand*{\firstAuthor}[1]{\gdef\@firstAuthor{#1}}
+\newcommand*{\@firstAuthor}{}
+% \secondAuthor
+\newcommand*{\secondAuthor}[1]{\gdef\@secondAuthor{#1}}
+\newcommand*{\@secondAuthor}{}
+% \thirdAuthor
+\newcommand*{\thirdAuthor}[1]{\gdef\@thirdAuthor{#1}}
+\newcommand*{\@thirdAuthor}{}
+% \forthAuthor
+\newcommand*{\forthAuthor}[1]{\gdef\@forthAuthor{#1}}
+\newcommand*{\@forthAuthor}{}
+% \albumFirstAuthor
+\newcommand*{\albumFirstAuthor}[1]{\gdef\@albumFirstAuthor{#1}}
+\newcommand*{\@albumFirstAuthor}{}
+% \albumSecondAuthor
+\newcommand*{\albumSecondAuthor}[1]{\gdef\@albumSecondAuthor{#1}}
+\newcommand*{\@albumSecondAuthor}{}
+% \albumThirdAuthor
+\newcommand*{\albumThirdAuthor}[1]{\gdef\@albumThirdAuthor{#1}}
+\newcommand*{\@albumThirdAuthor}{}
+% \albumForthAuthor
+\newcommand*{\albumForthAuthor}[1]{\gdef\@albumForthAuthor{#1}}
+\newcommand*{\@albumForthAuthor}{}
 \newcommand*{\type}[1]{\gdef\@type{#1}}
 \newcommand*{\@type}{}
 \newcommand*{\field}[1]{\gdef\@field{#1}}
@@ -340,7 +362,6 @@
 \newcommand*{\specialty}[1]{\gdef\@specialty{#1}}
 \newcommand*{\@specialty}{}
 \specialty{}
-
 % Wydział
 \newcommand*{\faculty}[1]{\gdef\@faculty{#1}}
 \newcommand*{\@faculty}{}
@@ -451,11 +472,26 @@
     {\noindent\centering\normalfont%
       \@facultyM
     \strut\par}%
-    \vspace{2cm}
-    {\noindent\centering\normalfont\@author\strut\par}%
-    {\noindent\centering\normalfont%
-      Numer albumu: %
-      \@album\strut\par}%
+
+    {\vspace{0.5cm}\noindent\centering\normalfont\@firstAuthor\strut\par
+    Numer albumu: \@albumFirstAuthor\strut\par}%
+     
+    \ifthenelse{\equal{\@secondAuthor}{}}{}{
+    \vspace{0.5cm}\noindent\centering\normalfont\@secondAuthor\strut\par
+    Numer albumu: \@albumSecondAuthor\strut\par
+	  }
+    
+    \ifthenelse{\equal{\@thirdAuthor}{}}{}{
+    \vspace{0.5cm}\noindent\centering\normalfont\@thirdAuthor\strut\par
+	  Numer albumu: \@albumThirdAuthor\strut\par
+    }
+    
+    
+    \ifthenelse{\equal{\@forthAuthor}{}}{}{
+    \vspace{0.5cm}\noindent\centering\normalfont\@forthAuthor\strut\par
+    \noindent Numer albumu: \@albumForthAuthor\strut\par	
+	  }
+
     \vspace{2cm}
   \else
     {\noindent\centering\scshape\large%
@@ -503,6 +539,31 @@
   \ifthenelse{\equal{\unexpanded{#1}}{M}}{\@stmaletrue}{\@stmalefalse}%
 }
 
+\newif\if@stmaleFirstAuthor
+\@stmaleFirstAuthortrue
+\newcommand*{\stsexFirstAuthor}[1]{%
+  \ifthenelse{\equal{\unexpanded{#1}}{M}}{\@stmaleFirstAuthortrue}{\@stmaleFirstAuthorfalse}%
+}
+
+\newif\if@stmaleSecondAuthor
+\@stmaleSecondAuthortrue
+\newcommand*{\stsexSecondAuthor}[1]{%
+  \ifthenelse{\equal{\unexpanded{#1}}{M}}{\@stmaleSecondAuthortrue}{\@stmaleSecondAuthorfalse}%
+}
+
+\newif\if@stmaleThirdAuthor
+\@stmaleThirdAuthortrue
+\newcommand*{\stsexThirdAuthor}[1]{%
+  \ifthenelse{\equal{\unexpanded{#1}}{M}}{\@stmaleThirdAuthortrue}{\@stmaleThirdAuthorfalse}%
+}
+
+\newif\if@stmaleForthAuthor
+\@stmaleForthAuthortrue
+\newcommand*{\stsexForthAuthor}[1]{%
+  \ifthenelse{\equal{\unexpanded{#1}}{M}}{\@stmaleForthAuthortrue}{\@stmaleForthAuthorfalse}%
+}
+
+
 \newcommand*{\stdate}[1]{\gdef\@stdate{#1}}
 \newcommand*{\@stdate}{}
 \newcommand*{\stread}[1]{\gdef\@stread{#1}}
@@ -535,18 +596,18 @@
   \fi%
   {%
   Ja, ni\.zej %
-  \if@stmale podpisany \else podpisana \fi %
-  {\bfseries\@author}, %
-  \if@stmale student \else studentka \fi %
+  \if@stmaleFirstAuthor podpisany \else podpisana \fi %
+  {\bfseries\@firstAuthor}, %
+  \if@stmaleFirstAuthor student \else studentka \fi %
   \@facultyD{} Uniwersytetu im.~Adama Mickiewicza w Poznaniu o\'swiadczam, \.ze przedk\l{}adan\k{a} prac\k{e} dyplomow\k{a} pt. %
   \emph{\@title} %
-  \if@stmale napisa\l{}em \else napisa\l{}am \fi %
+  \if@stmaleFirstAuthor napisa\l{}em \else napisa\l{}am \fi %
   samodzielnie. Oznacza to, \.ze przy pisaniu pracy, poza niezb\k{e}dnymi konsultacjami, nie %
-  \if@stmale korzysta\l{}em \else korzysta\l{}am \fi %
+  \if@stmaleFirstAuthor korzysta\l{}em \else korzysta\l{}am \fi %
   z pomocy innych os\'ob, a~w~szczeg\'olno\'sci nie %
-  \if@stmale zleca\l{}em \else zleca\l{}am \fi %
+  \if@stmaleFirstAuthor zleca\l{}em \else zleca\l{}am \fi %
   opracowania rozprawy lub jej cz\k{e}\'sci innym osobom, ani nie %
-  \if@stmale odpisywa\l{}em \else odpisywa\l{}am \fi %
+  \if@stmaleFirstAuthor odpisywa\l{}em \else odpisywa\l{}am \fi %
   tej rozprawy lub jej cz\k{e}\'sci od innych os\'ob. O\'swiadczam r\'ownie\.z, \.ze egzemplarz pracy dyplomowej w~wersji drukowanej jest ca\l{}kowicie zgodny z~egzemplarzem pracy dyplomowej w~wersji elektronicznej. Jednocze\'snie przyjmuj\k{e} do wiadomo\'sci, \.ze przypisanie sobie, w~pracy dyplomowej, autorstwa istotnego fragmentu lub innych element\'ow cudzego utworu lub ustalenia naukowego stanowi podstaw\k{e} stwierdzenia niewa\.zno\'sci post\k{e}powania w~sprawie nadania tytu\l{}u zawodowego.\par%
   }%
   {
@@ -557,6 +618,150 @@
   \end{tabularx}
   }
   \clearpage
+  % Statement of second person.
+  \ifthenelse{\equal{\@secondAuthor}{}}{}{%
+  \cleardoublepage\thispagestyle{empty}%
+  \setfaculty
+  {\noindent\normalfont\flushright{\@stdate{}}\strut\par}%
+  \vskip 2.5 \baselineskip
+  \vbox to 6 \baselineskip{%
+    \bgroup%
+    \fontsize{18pt}{24pt}\selectfont\centering%
+    \vskip 1.5 \baselineskip O\'swiadczenie\par%
+    \vfill%
+    \egroup%
+  }%
+  \if@optindent
+    \makeatletter
+    \@afterindenttrue
+    \makeatother
+  \else
+    \makeatletter
+    \@afterindentfalse
+    \@afterheading
+    \makeatother
+  \fi%
+  {%
+  Ja, ni\.zej %
+  \if@stmaleSecondAuthor podpisany \else podpisana \fi %
+  {\bfseries\@secondAuthor}, %
+  \if@stmaleSecondAuthor student \else studentka \fi %
+  \@facultyD{} Uniwersytetu im.~Adama Mickiewicza w Poznaniu o\'swiadczam, \.ze przedk\l{}adan\k{a} prac\k{e} dyplomow\k{a} pt. %
+  \emph{\@title} %
+  \if@stmaleSecondAuthor napisa\l{}em \else napisa\l{}am \fi %
+  samodzielnie. Oznacza to, \.ze przy pisaniu pracy, poza niezb\k{e}dnymi konsultacjami, nie %
+  \if@stmaleSecondAuthor korzysta\l{}em \else korzysta\l{}am \fi %
+  z pomocy innych os\'ob, a~w~szczeg\'olno\'sci nie %
+  \if@stmaleSecondAuthor zleca\l{}em \else zleca\l{}am \fi %
+  opracowania rozprawy lub jej cz\k{e}\'sci innym osobom, ani nie %
+  \if@stmaleSecondAuthor odpisywa\l{}em \else odpisywa\l{}am \fi %
+  tej rozprawy lub jej cz\k{e}\'sci od innych os\'ob. O\'swiadczam r\'ownie\.z, \.ze egzemplarz pracy dyplomowej w~wersji drukowanej jest ca\l{}kowicie zgodny z~egzemplarzem pracy dyplomowej w~wersji elektronicznej. Jednocze\'snie przyjmuj\k{e} do wiadomo\'sci, \.ze przypisanie sobie, w~pracy dyplomowej, autorstwa istotnego fragmentu lub innych element\'ow cudzego utworu lub ustalenia naukowego stanowi podstaw\k{e} stwierdzenia niewa\.zno\'sci post\k{e}powania w~sprawie nadania tytu\l{}u zawodowego.\par%
+  }%
+  {
+  \vspace{2cm}%
+  \small\noindent\begin{tabularx}{\textwidth}{@{}lX}
+  {[\texttt{\uppercase{\@stread}}]} & wyra\.zam zgod\k{e} na udost\k{e}pnianie mojej pracy w czytelni Archiwum UAM\\[1ex]
+  {[\texttt{\uppercase{\@stprotect}}]} & wyra\.zam zgod\k{e} na udost\k{e}pnianie mojej pracy w zakresie koniecznym do ochrony mojego prawa do autorstwa lub praw os\'ob trzecich\\
+  \end{tabularx}
+  }
+  \clearpage
+  }
+  % Statement of third person.
+  \ifthenelse{\equal{\@thirdAuthor}{}}{}{%
+  \cleardoublepage\thispagestyle{empty}%
+  \setfaculty
+  {\noindent\normalfont\flushright{\@stdate{}}\strut\par}%
+  \vskip 2.5 \baselineskip
+  \vbox to 6 \baselineskip{%
+    \bgroup%
+    \fontsize{18pt}{24pt}\selectfont\centering%
+    \vskip 1.5 \baselineskip O\'swiadczenie\par%
+    \vfill%
+    \egroup%
+  }%
+  \if@optindent
+    \makeatletter
+    \@afterindenttrue
+    \makeatother
+  \else
+    \makeatletter
+    \@afterindentfalse
+    \@afterheading
+    \makeatother
+  \fi%
+  {%
+  Ja, ni\.zej %
+  \if@stmaleThirdAuthor podpisany \else podpisana \fi %
+  {\bfseries\@thirdAuthor}, %
+  \if@stmaleThirdAuthor student \else studentka \fi %
+  \@facultyD{} Uniwersytetu im.~Adama Mickiewicza w Poznaniu o\'swiadczam, \.ze przedk\l{}adan\k{a} prac\k{e} dyplomow\k{a} pt. %
+  \emph{\@title} %
+  \if@stmaleThirdAuthor napisa\l{}em \else napisa\l{}am \fi %
+  samodzielnie. Oznacza to, \.ze przy pisaniu pracy, poza niezb\k{e}dnymi konsultacjami, nie %
+  \if@stmaleThirdAuthor korzysta\l{}em \else korzysta\l{}am \fi %
+  z pomocy innych os\'ob, a~w~szczeg\'olno\'sci nie %
+  \if@stmaleThirdAuthor zleca\l{}em \else zleca\l{}am \fi %
+  opracowania rozprawy lub jej cz\k{e}\'sci innym osobom, ani nie %
+  \if@stmaleThirdAuthor odpisywa\l{}em \else odpisywa\l{}am \fi %
+  tej rozprawy lub jej cz\k{e}\'sci od innych os\'ob. O\'swiadczam r\'ownie\.z, \.ze egzemplarz pracy dyplomowej w~wersji drukowanej jest ca\l{}kowicie zgodny z~egzemplarzem pracy dyplomowej w~wersji elektronicznej. Jednocze\'snie przyjmuj\k{e} do wiadomo\'sci, \.ze przypisanie sobie, w~pracy dyplomowej, autorstwa istotnego fragmentu lub innych element\'ow cudzego utworu lub ustalenia naukowego stanowi podstaw\k{e} stwierdzenia niewa\.zno\'sci post\k{e}powania w~sprawie nadania tytu\l{}u zawodowego.\par%
+  }%
+  {
+  \vspace{2cm}%
+  \small\noindent\begin{tabularx}{\textwidth}{@{}lX}
+  {[\texttt{\uppercase{\@stread}}]} & wyra\.zam zgod\k{e} na udost\k{e}pnianie mojej pracy w czytelni Archiwum UAM\\[1ex]
+  {[\texttt{\uppercase{\@stprotect}}]} & wyra\.zam zgod\k{e} na udost\k{e}pnianie mojej pracy w zakresie koniecznym do ochrony mojego prawa do autorstwa lub praw os\'ob trzecich\\
+  \end{tabularx}
+  }
+  \clearpage
+  }
+  % Statement of fourth person.
+  \ifthenelse{\equal{\@forthAuthor}{}}{}{%
+  \cleardoublepage\thispagestyle{empty}%
+  \setfaculty
+  {\noindent\normalfont\flushright{\@stdate{}}\strut\par}%
+  \vskip 2.5 \baselineskip
+  \vbox to 6 \baselineskip{%
+    \bgroup%
+    \fontsize{18pt}{24pt}\selectfont\centering%
+    \vskip 1.5 \baselineskip O\'swiadczenie\par%
+    \vfill%
+    \egroup%
+  }%
+  \if@optindent
+    \makeatletter
+    \@afterindenttrue
+    \makeatother
+  \else
+    \makeatletter
+    \@afterindentfalse
+    \@afterheading
+    \makeatother
+  \fi%
+  {%
+  Ja, ni\.zej %
+  \if@stmaleForthAuthor podpisany \else podpisana \fi %
+  {\bfseries\@forthAuthor}, %
+  \if@stmaleForthAuthor student \else studentka \fi %
+  \@facultyD{} Uniwersytetu im.~Adama Mickiewicza w Poznaniu o\'swiadczam, \.ze przedk\l{}adan\k{a} prac\k{e} dyplomow\k{a} pt. %
+  \emph{\@title} %
+  \if@stmaleForthAuthor napisa\l{}em \else napisa\l{}am \fi %
+  samodzielnie. Oznacza to, \.ze przy pisaniu pracy, poza niezb\k{e}dnymi konsultacjami, nie %
+  \if@stmaleForthAuthor korzysta\l{}em \else korzysta\l{}am \fi %
+  z pomocy innych os\'ob, a~w~szczeg\'olno\'sci nie %
+  \if@stmaleForthAuthor zleca\l{}em \else zleca\l{}am \fi %
+  opracowania rozprawy lub jej cz\k{e}\'sci innym osobom, ani nie %
+  \if@stmaleForthAuthor odpisywa\l{}em \else odpisywa\l{}am \fi %
+  tej rozprawy lub jej cz\k{e}\'sci od innych os\'ob. O\'swiadczam r\'ownie\.z, \.ze egzemplarz pracy dyplomowej w~wersji drukowanej jest ca\l{}kowicie zgodny z~egzemplarzem pracy dyplomowej w~wersji elektronicznej. Jednocze\'snie przyjmuj\k{e} do wiadomo\'sci, \.ze przypisanie sobie, w~pracy dyplomowej, autorstwa istotnego fragmentu lub innych element\'ow cudzego utworu lub ustalenia naukowego stanowi podstaw\k{e} stwierdzenia niewa\.zno\'sci post\k{e}powania w~sprawie nadania tytu\l{}u zawodowego.\par%
+  }%
+  {
+  \vspace{2cm}%
+  \small\noindent\begin{tabularx}{\textwidth}{@{}lX}
+  {[\texttt{\uppercase{\@stread}}]} & wyra\.zam zgod\k{e} na udost\k{e}pnianie mojej pracy w czytelni Archiwum UAM\\[1ex]
+  {[\texttt{\uppercase{\@stprotect}}]} & wyra\.zam zgod\k{e} na udost\k{e}pnianie mojej pracy w zakresie koniecznym do ochrony mojego prawa do autorstwa lub praw os\'ob trzecich\\
+  \end{tabularx}
+  }
+  \clearpage
+  }
 }
 
 % ======================================================== %
