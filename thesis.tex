@@ -6,20 +6,37 @@
 
 % Zdefiniuj kodowanie pliku źródłowego (domyślnie utf8)
 \usepackage[utf8]{inputenc}
+\usepackage{authblk}
 
 % ======================================================== %
-% Dane autora i pracy                                      %
+% Dane autorów i pracy                                      %
 % ======================================================== %
 
-% --- Autor pracy
-\author{Jan Kowalski}
-% --- Numer albumu
-\album{123456}
+% --- Autorzy prac
+% --- --- Imię i nazwisko
+% --- --- Numer albumu
+% --- --- Płeć (M/K)
+\firstAuthor{Jan Kowalski}
+\firstAlbum{123456}
+\stsexFirstAuthor{M}
+
+%\secondAuthor{Autor Drugi}
+%\secondAlbum{234561}
+%\stsexSecondAuthor{M}
+
+%\thirdAuthor{Autor Trzeci}
+%\thirdAlbum{345612}
+%\stsexThirdAuthor{M}
+
+%\fourthAuthor{Autor Czwarty}
+%\fourthAlbum{456123}
+%\stsexFourthAuthor{F}
+
 % --- Tytuł pracy (w języku polskim i angielskim)
 \titlePL{Moja praca}
 \titleEN{My thesis}
 % --- Typ pracy (inżynierska, licencjacka, magisterska)
-\type{magisterska}
+\type{inżynierska}
 % --- Wydział (wykaz skrótów):
 % --- --- WA    --- Wydział Anglistyki
 % --- --- WB    --- Wydział Biologii
@@ -39,17 +56,16 @@
 % --- --- IKE   --- Instytut Kultury Europejskiej w Gnieźnie
 \faculty{WMiI}
 % --- Kierunek (w mianowniku)
-\field{matematyka}
+\field{informatyka}
 % --- Specjalność (w formie mianownikowej)
 % --- (ustaw puste, jeśli bez specjalności)
-\specialty{finansowa i aktuarialna}
+\specialty{}
 % --- Promotor (w dopełniaczu)
-\supervisor{prof. UAM dr. hab. Jana Nowaka}
+\supervisor{prof. UAM dra hab. Jana Nowaka}
 % --- Data złożenia pracy (Miasto, miesiąc rok)
-\date{Poznań, wrzesień 2017}
+\date{Poznań, grudzień 2020}
 
-% --- Płeć autora (M/K)
-\stsex{M}
+
 % --- Zgoda na udostępnienie pracy w czytelni (TAK/NIE)
 \stread{TAK}
 % --- Zgoda na udostępnienie pracy w zakresie ochrony (TAK/NIE)
