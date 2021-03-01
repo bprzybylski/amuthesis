@@ -329,6 +329,7 @@
 \newcommand*{\@titlePL}{}
 \newcommand*{\titleEN}[1]{\gdef\@titleEN{#1}}
 \newcommand*{\@titleEN}{}
+
 % \firstAuthor
 \newcommand*{\firstAuthor}[1]{\gdef\@firstAuthor{#1}}
 \newcommand*{\@firstAuthor}{}
@@ -338,21 +339,23 @@
 % \thirdAuthor
 \newcommand*{\thirdAuthor}[1]{\gdef\@thirdAuthor{#1}}
 \newcommand*{\@thirdAuthor}{}
-% \forthAuthor
-\newcommand*{\forthAuthor}[1]{\gdef\@forthAuthor{#1}}
-\newcommand*{\@forthAuthor}{}
-% \albumFirstAuthor
-\newcommand*{\albumFirstAuthor}[1]{\gdef\@albumFirstAuthor{#1}}
-\newcommand*{\@albumFirstAuthor}{}
-% \albumSecondAuthor
-\newcommand*{\albumSecondAuthor}[1]{\gdef\@albumSecondAuthor{#1}}
-\newcommand*{\@albumSecondAuthor}{}
-% \albumThirdAuthor
-\newcommand*{\albumThirdAuthor}[1]{\gdef\@albumThirdAuthor{#1}}
-\newcommand*{\@albumThirdAuthor}{}
-% \albumForthAuthor
-\newcommand*{\albumForthAuthor}[1]{\gdef\@albumForthAuthor{#1}}
-\newcommand*{\@albumForthAuthor}{}
+% \fourthAuthor
+\newcommand*{\fourthAuthor}[1]{\gdef\@fourthAuthor{#1}}
+\newcommand*{\@fourthAuthor}{}
+
+% \firstAlbum
+\newcommand*{\firstAlbum}[1]{\gdef\@firstAlbum{#1}}
+\newcommand*{\@firstAlbum}{}
+% \secondAlbum
+\newcommand*{\secondAlbum}[1]{\gdef\@secondAlbum{#1}}
+\newcommand*{\@secondAlbum}{}
+% \thirdAlbum
+\newcommand*{\thirdAlbum}[1]{\gdef\@thirdAlbum{#1}}
+\newcommand*{\@thirdAlbum}{}
+% \fourthAlbum
+\newcommand*{\fourthAlbum}[1]{\gdef\@fourthAlbum{#1}}
+\newcommand*{\@fourthAlbum}{}
+
 \newcommand*{\type}[1]{\gdef\@type{#1}}
 \newcommand*{\@type}{}
 \newcommand*{\field}[1]{\gdef\@field{#1}}
@@ -362,6 +365,7 @@
 \newcommand*{\specialty}[1]{\gdef\@specialty{#1}}
 \newcommand*{\@specialty}{}
 \specialty{}
+
 % Wydział
 \newcommand*{\faculty}[1]{\gdef\@faculty{#1}}
 \newcommand*{\@faculty}{}
@@ -472,27 +476,24 @@
     {\noindent\centering\normalfont%
       \@facultyM
     \strut\par}%
+    \vspace{1.5cm}
 
-    {\vspace{0.5cm}\noindent\centering\normalfont\@firstAuthor\strut\par
-    Numer albumu: \@albumFirstAuthor\strut\par}%
+    {\vspace{0.3cm}\noindent\centering\normalfont\@firstAuthor\strut\par
+    Numer albumu: \@firstAlbum\strut\par}%
      
     \ifthenelse{\equal{\@secondAuthor}{}}{}{
-    \vspace{0.5cm}\noindent\centering\normalfont\@secondAuthor\strut\par
-    Numer albumu: \@albumSecondAuthor\strut\par
-	  }
+    \vspace{0.3cm}\noindent\centering\normalfont\@secondAuthor\strut\par
+    Numer albumu: \@secondAlbum\strut\par}
     
     \ifthenelse{\equal{\@thirdAuthor}{}}{}{
-    \vspace{0.5cm}\noindent\centering\normalfont\@thirdAuthor\strut\par
-	  Numer albumu: \@albumThirdAuthor\strut\par
-    }
+    \vspace{0.3cm}\noindent\centering\normalfont\@thirdAuthor\strut\par
+	  Numer albumu: \@thirdAlbum\strut\par}
     
-    
-    \ifthenelse{\equal{\@forthAuthor}{}}{}{
-    \vspace{0.5cm}\noindent\centering\normalfont\@forthAuthor\strut\par
-    \noindent Numer albumu: \@albumForthAuthor\strut\par	
-	  }
+    \ifthenelse{\equal{\@fourthAuthor}{}}{}{
+    \vspace{0.3cm}\noindent\centering\normalfont\@fourthAuthor\strut\par
+    \noindent Numer albumu: \@fourthAlbum\strut\par}
 
-    \vspace{2cm}
+    \vspace{1.8cm}
   \else
     {\noindent\centering\scshape\large%
       Uniwersytet im. Adama Mickiewicza w Poznaniu%
@@ -501,11 +502,23 @@
       \@facultyM
     \strut\par}%
     \vspace{2.5cm}
-    {\noindent\centering\normalfont\@author\strut\par}%
-    {\noindent\centering\normalfont%
-      Numer albumu: %
-      \@album\strut\par}%
-    \vspace{2.5cm}
+    
+    {\vspace{0.3cm}\noindent\centering\normalfont\@firstAuthor\strut\par
+    Numer albumu: \@firstAlbum\strut\par}%
+     
+    \ifthenelse{\equal{\@secondAuthor}{}}{}{
+    \vspace{0.3cm}\noindent\centering\normalfont\@secondAuthor\strut\par
+    Numer albumu: \@secondAlbum\strut\par}
+    
+    \ifthenelse{\equal{\@thirdAuthor}{}}{}{
+    \vspace{0.3cm}\noindent\centering\normalfont\@thirdAuthor\strut\par
+	  Numer albumu: \@thirdAlbum\strut\par}
+    
+    \ifthenelse{\equal{\@fourthAuthor}{}}{}{
+    \vspace{0.3cm}\noindent\centering\normalfont\@fourthAuthor\strut\par
+    \noindent Numer albumu: \@fourthAlbum\strut\par}
+
+    \vspace{2.8cm}
   \fi
   % Uzależnij kolejność tytułów od wybranego języka
   \if@optpolski
@@ -557,10 +570,10 @@
   \ifthenelse{\equal{\unexpanded{#1}}{M}}{\@stmaleThirdAuthortrue}{\@stmaleThirdAuthorfalse}%
 }
 
-\newif\if@stmaleForthAuthor
-\@stmaleForthAuthortrue
-\newcommand*{\stsexForthAuthor}[1]{%
-  \ifthenelse{\equal{\unexpanded{#1}}{M}}{\@stmaleForthAuthortrue}{\@stmaleForthAuthorfalse}%
+\newif\if@stmaleFourthAuthor
+\@stmaleFourthAuthortrue
+\newcommand*{\stsexFourthAuthor}[1]{%
+  \ifthenelse{\equal{\unexpanded{#1}}{M}}{\@stmaleFourthAuthortrue}{\@stmaleFourthAuthorfalse}%
 }
 
 
@@ -715,7 +728,7 @@
   \clearpage
   }
   % Statement of fourth person.
-  \ifthenelse{\equal{\@forthAuthor}{}}{}{%
+  \ifthenelse{\equal{\@fourthAuthor}{}}{}{%
   \cleardoublepage\thispagestyle{empty}%
   \setfaculty
   {\noindent\normalfont\flushright{\@stdate{}}\strut\par}%
@@ -739,18 +752,18 @@
   \fi%
   {%
   Ja, ni\.zej %
-  \if@stmaleForthAuthor podpisany \else podpisana \fi %
-  {\bfseries\@forthAuthor}, %
-  \if@stmaleForthAuthor student \else studentka \fi %
+  \if@stmaleFourthAuthor podpisany \else podpisana \fi %
+  {\bfseries\@fourthAuthor}, %
+  \if@stmaleFourthAuthor student \else studentka \fi %
   \@facultyD{} Uniwersytetu im.~Adama Mickiewicza w Poznaniu o\'swiadczam, \.ze przedk\l{}adan\k{a} prac\k{e} dyplomow\k{a} pt. %
   \emph{\@title} %
-  \if@stmaleForthAuthor napisa\l{}em \else napisa\l{}am \fi %
+  \if@stmaleFourthAuthor napisa\l{}em \else napisa\l{}am \fi %
   samodzielnie. Oznacza to, \.ze przy pisaniu pracy, poza niezb\k{e}dnymi konsultacjami, nie %
-  \if@stmaleForthAuthor korzysta\l{}em \else korzysta\l{}am \fi %
+  \if@stmaleFourthAuthor korzysta\l{}em \else korzysta\l{}am \fi %
   z pomocy innych os\'ob, a~w~szczeg\'olno\'sci nie %
-  \if@stmaleForthAuthor zleca\l{}em \else zleca\l{}am \fi %
+  \if@stmaleFourthAuthor zleca\l{}em \else zleca\l{}am \fi %
   opracowania rozprawy lub jej cz\k{e}\'sci innym osobom, ani nie %
-  \if@stmaleForthAuthor odpisywa\l{}em \else odpisywa\l{}am \fi %
+  \if@stmaleFourthAuthor odpisywa\l{}em \else odpisywa\l{}am \fi %
   tej rozprawy lub jej cz\k{e}\'sci od innych os\'ob. O\'swiadczam r\'ownie\.z, \.ze egzemplarz pracy dyplomowej w~wersji drukowanej jest ca\l{}kowicie zgodny z~egzemplarzem pracy dyplomowej w~wersji elektronicznej. Jednocze\'snie przyjmuj\k{e} do wiadomo\'sci, \.ze przypisanie sobie, w~pracy dyplomowej, autorstwa istotnego fragmentu lub innych element\'ow cudzego utworu lub ustalenia naukowego stanowi podstaw\k{e} stwierdzenia niewa\.zno\'sci post\k{e}powania w~sprawie nadania tytu\l{}u zawodowego.\par%
   }%
   {
