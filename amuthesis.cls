@@ -383,6 +383,16 @@
     \facultyM{Wydzia\l{} Anglistyki}
     \facultyD{Wydzia\l{}u Anglistyki}
   }{}
+  % --- WAiK --- Wydział Antropologii i Kulturoznawstwa
+  \ifthenelse{\equal{\@faculty}{WAiK}}{
+    \facultyM{Wydzia\l{} Antropologii i Kulturoznawstwa}
+    \facultyD{Wydzia\l{}u Antropologii i Kulturoznawstwa}
+  }{}
+  % --- WAr --- Wydział Archeologii
+  \ifthenelse{\equal{\@faculty}{WAr}}{
+    \facultyM{Wydzia\l{} Archeologii}
+    \facultyD{Wydzia\l{}u Archeologii}
+  }{}
   % --- WB --- Wydział Biologii
   \ifthenelse{\equal{\@faculty}{WB}}{
     \facultyM{Wydzia\l{} Biologii}
@@ -398,15 +408,25 @@
     \facultyM{Wydzia\l{} Filologii Polskiej i~Klasycznej}
     \facultyD{Wydzia\l{}u Filologii Polskiej i~Klasycznej}
   }{}
+  % --- WFi --- Wydział Filozoficzny
+  \ifthenelse{\equal{\@faculty}{WFi}}{
+    \facultyM{Wydzia\l{} Filozoficzny}
+    \facultyD{Wydzia\l{}u Filolozoficznego}
+  }{}
   % --- WF --- Wydział Fizyki
   \ifthenelse{\equal{\@faculty}{WF}}{
     \facultyM{Wydzia\l{} Fizyki}
     \facultyD{Wydzia\l{}u Fizyki}
   }{}
-  % --- WH --- Wydział Historyczny
+  % --- WGSE --- Geografii Społeczno-Ekonomicznej i Gospodarki Przestrzennej
+  \ifthenelse{\equal{\@faculty}{WGSE}}{
+    \facultyM{Wydzia\l{} Geografii Spo\l{}eczno-Ekonomicznej i~Gospodarki Przestrzennej}
+    \facultyD{Wydzia\l{}u Geografii Spo\l{}eczno-Ekonomicznej i~Gospodarki Przestrzennej}
+  }{}
+  % --- WH --- Wydział Historii
   \ifthenelse{\equal{\@faculty}{WH}}{
-    \facultyM{Wydzia\l{} Historyczny}
-    \facultyD{Wydzia\l{}u Historycznego}
+    \facultyM{Wydzia\l{} Historii}
+    \facultyD{Wydzia\l{}u Historii}
   }{}
   % --- WMiI --- Wydział Matematyki i Informatyki
   \ifthenelse{\equal{\@faculty}{WMiI}}{
@@ -418,20 +438,25 @@
     \facultyM{Wydzia\l{} Nauk Geograficznych i~Geologicznych}
     \facultyD{Wydzia\l{}u Nauk Geograficznych i~Geologicznych}
   }{}
+  % --- WNoS --- Wydział Nauk o Sztuce
+  \ifthenelse{\equal{\@faculty}{WNoS}}{
+    \facultyM{Wydzia\l{} Nauk o~Sztuce}
+    \facultyD{Wydzia\l{}u Nauk o~Sztuce}
+  }{}
   % --- WNPiD --- Wydział Nauk Politycznych i Dziennikarstwa
   \ifthenelse{\equal{\@faculty}{WNPiD}}{
     \facultyM{Wydzia\l{} Nauk Politycznych i~Dziennikarstwa}
     \facultyD{Wydzia\l{}u Nauk Politycznych i~Dziennikarstwa}
   }{}
-  % --- WNS --- Wydział Nauk Społecznych
-  \ifthenelse{\equal{\@faculty}{WNS}}{
-    \facultyM{Wydzia\l{} Nauk Spo\l{}ecznych}
-    \facultyD{Wydzia\l{}u Nauk Spo\l{}ecznych}
-  }{}
   % --- WN --- Wydział Neofilologii
   \ifthenelse{\equal{\@faculty}{WN}}{
     \facultyM{Wydzia\l{} Neofilologii}
     \facultyD{Wydzia\l{}u Neofilologii}
+  }{}
+  % --- WPiK --- Wydział Psychologii i Kognitywistyki
+  \ifthenelse{\equal{\@faculty}{WPiK}}{
+    \facultyM{Wydzia\l{} Psychologii i Kognitywistyki}
+    \facultyD{Wydzia\l{}u Psychologii i Kognitywistyki}
   }{}
   % --- WPAK --- Wydział Pedagogiczno-Artystyczny w Kaliszu
   \ifthenelse{\equal{\@faculty}{WPAK}}{
@@ -442,6 +467,11 @@
   \ifthenelse{\equal{\@faculty}{WPiA}}{
     \facultyM{Wydzia\l{} Prawa i~Administracji}
     \facultyD{Wydzia\l{}u Prawa i~Administracji}
+  }{}
+  % --- WS --- Wydział Socjologii
+  \ifthenelse{\equal{\@faculty}{WS}}{
+    \facultyM{Wydzia\l{} Socjologii}
+    \facultyD{Wydzia\l{}u Socjologii}
   }{}
   % --- WSE --- Wydział Studiów Edukacyjnych
   \ifthenelse{\equal{\@faculty}{WSE}}{
