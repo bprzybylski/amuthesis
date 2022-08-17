@@ -819,25 +819,22 @@
   \vskip 3 \baselineskip
   \thispagestyle{plain}
   \IfBooleanTF{#1}{%
-    \vbox to 6 \baselineskip{%
-      \bgroup%
-      \fontsize{18pt}{24pt}\selectfont\centering%
-      \vskip 1.5 \baselineskip#2\par%
-      \vfill%
-      \egroup%
-    }%
+    \bgroup%
+    \fontsize{18pt}{24pt}\selectfont\centering%
+    \vskip 1.5 \baselineskip#2\par%
+    \vskip 1.5 \baselineskip%
+    \egroup%
     \markboth{#2}{#2}%
   }{%
     \stepcounter{chapter}
-    \vbox to 6 \baselineskip{%
-      \bgroup%
-      \fontsize{14pt}{24pt}\selectfont\centering%
-      \textsc{\chaptername~\thechapter}\par%
-      \vskip 0.5 \baselineskip%
-      \fontsize{18pt}{24pt}\selectfont#2\par%
-      \vfill%
-      \egroup
-    }%
+    \protected@edef\@currentlabel{\p@chapter\thechapter}%
+    \bgroup%
+    \fontsize{14pt}{24pt}\selectfont\centering%
+    \textsc{\chaptername~\thechapter}\par%
+    \vskip 0.5 \baselineskip%
+    \fontsize{18pt}{24pt}\selectfont#2\par%
+    \vskip 1.5 \baselineskip%
+    \egroup
     \addcontentsline{toc}{chapter}{\chaptername~\thechapter.~#2}%
     %\addtocontents{toc}{\vskip 1 \baselineskip}
     \markboth{\chaptername~\thechapter.~#2}{\chaptername~\thechapter.~#2}%
@@ -856,33 +853,30 @@
 
 % Paragrafy
 \RenewDocumentCommand\section{sm}{%
-  \stepcounter{section}
-  \vskip 2 \baselineskip
+  \vskip 1 \baselineskip
   \IfBooleanTF{#1}{%
-    \vbox to 2 \baselineskip{%
-      \bgroup%
-      \fontsize{14pt}{24pt}\selectfont\centering%
-      \textsc{#2}\par%
-      \vfill%
-      \egroup%
-    }%
+    \bgroup%
+    \fontsize{14pt}{18pt}\selectfont\centering%
+    \textsc{#2}\par%
+    \vskip 0.75 \baselineskip%
+    \egroup%
     \markright{#2}%
   }{%
-    \vbox to 2 \baselineskip{%
+    \stepcounter{section}
+    \protected@edef\@currentlabel{\p@section\thesection}%
     \bgroup%
-      \fontsize{14pt}{24pt}\selectfont\centering%
-      \if@optpolski
-        \phantomsection
-        \addcontentsline{toc}{section}{\thesection.~\hskip 0.25em #2}%
-        \textsc{\thesection.~\hskip 0.25em #2}\par%
-      \else
-        \phantomsection
-        \addcontentsline{toc}{section}{\thesection~\hskip 1em #2}%
-        \textsc{\thesection~\hskip 1em #2}\par%
-      \fi
-      \vfill%
-      \egroup%
-    }%
+    \fontsize{14pt}{18pt}\selectfont\centering%
+    \if@optpolski
+      \phantomsection
+      \addcontentsline{toc}{section}{\thesection.~\hskip 0.25em #2}%
+      \textsc{\thesection.~\hskip 0.25em #2}\par%
+    \else
+      \phantomsection
+      \addcontentsline{toc}{section}{\thesection~\hskip 1em #2}%
+      \textsc{\thesection~\hskip 1em #2}\par%
+    \fi
+    \vskip 0.75 \baselineskip%
+    \egroup%
     \markright{\thesection.~#2}%
   }
   \if@optindent
@@ -900,32 +894,29 @@
 
 % Podparagrafy
 \RenewDocumentCommand\subsection{sm}{%
-  \stepcounter{subsection}
-  \vskip 2 \baselineskip
+  \vskip 1 \baselineskip
   \IfBooleanTF{#1}{%
-    \vbox to 1 \baselineskip{%
-      \bgroup%
-      \noindent\textbf{#2}\par%
-      \vfill%
-      \egroup%
-    }%
+    \bgroup%
+    \noindent\textbf{#2}\par%
+    \vskip 0.75 \baselineskip%
+    \egroup%
     \markright{#2}%
   }{%
-    \vbox to 1 \baselineskip{%
+    \stepcounter{subsection}
+    \protected@edef\@currentlabel{\p@subsection\thesubsection}%
     \bgroup%
-      \noindent
-      \if@optpolski
-        \phantomsection
-        \addcontentsline{toc}{subsection}{\thesubsection.~\hskip 0.25em #2}%
-        \textbf{\thesubsection.~\hskip 0.25em #2}\par%
-      \else
-        \phantomsection
-        \addcontentsline{toc}{subsection}{\thesubsection~\hskip 1em #2}%
-        \textbf{\thesubsection~\hskip 1em #2}\par%
-      \fi
-      \vfill%
-      \egroup%
-    }%
+    \noindent
+    \if@optpolski
+      \phantomsection
+      \addcontentsline{toc}{subsection}{\thesubsection.~\hskip 0.25em #2}%
+      \textbf{\thesubsection.~\hskip 0.25em #2}\par%
+    \else
+      \phantomsection
+      \addcontentsline{toc}{subsection}{\thesubsection~\hskip 1em #2}%
+      \textbf{\thesubsection~\hskip 1em #2}\par%
+    \fi
+    \vskip 0.75 \baselineskip%
+    \egroup%
     \markright{\thesubsection.~#2}%
   }
   \if@optindent
